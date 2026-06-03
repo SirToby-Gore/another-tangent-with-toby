@@ -5,8 +5,8 @@
         <!-- Left Side: Interactive Contact Info -->
         <div class="studio-info">
             <h2>Interact with the Show</h2>
-            <p>Have an idea for a hypothetical argument, a recipe to share, or want to send a shout-out? Reach the
-                Weymouth House control desk live through these channels.</p>
+            <p>Have an idea for a hypothetical argument, a recipe to share, or want to send a shout-out? Reach to the
+                show</p>
 
             <div class="contact-list">
                 <div class="contact-item">
@@ -45,13 +45,13 @@
                 <div class="alert-success"><?php echo $successMessage; ?></div>
             <?php endif; ?>
 
-            <form method="POST" action="#hub">
+            <form method="POST" action="./?submit">
                 <div class="form-group">
                     <label for="submission_type">Select Segment</label>
                     <select id="submission_type" name="submission_type" required>
                         <option value="Unsung_Hero">Nominate an Unsung Hero</option>
                         <option value="Another_World_Hypothetical">Submit an 'In Another World' Question</option>
-                        <option value="Bake_Off_Recipe">Submit a Microwave Recipe</option>
+                        <option value="Bake_Off_Recipe">Submit a Recipe or Bake Off Challenge</option>
                         <option value="Bucket_List_Idea">Suggest a Bournemouth Bucket List Challenge</option>
                     </select>
                 </div>
@@ -60,6 +60,11 @@
                     <label for="sender_name">Your Name</label>
                     <input type="text" id="sender_name" name="sender_name" placeholder="E.g., Jamie from Poole"
                         required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact_details">How To Contact You (Optional)</label>
+                    <input type="text" id="contact_details" name="contact_details" placeholder="07123 456789">
                 </div>
 
                 <div class="form-group">

@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // =============================================================================
 // NERVE RADIO - ANOTHER TANGENT WITH TOBY
 // SASS Production Stylesheet
@@ -75,8 +77,12 @@ header {
 			font-family: $font-display;
 			letter-spacing: -1px;
 
-			span {
+			.orange {
 				color: $primary;
+			}
+
+			.white {
+				color: $text;
 			}
 		}
 
@@ -172,7 +178,7 @@ header {
 				color: #fff;
 
 				&:hover {
-					background-color: darken($primary, 8%);
+					background-color: color.adjust($primary, $lightness: -8%);
 					transform: translateY(-2px);
 					box-shadow: 0 8px 24px rgba($primary, 0.3);
 				}
@@ -428,7 +434,7 @@ header {
 			transition: $transition;
 
 			&:hover {
-				background-color: darken($primary, 8%);
+				background-color: color.adjust($primary, $lightness: -8%);
 				transform: translateY(-2px);
 			}
 		}
@@ -515,7 +521,7 @@ header {
 
 			&:hover {
 				transform: scale(1.08);
-				background-color: darken($secondary, 5%);
+				background-color: color.adjust($secondary, $lightness: 5%);
 			}
 
 			svg {
@@ -551,7 +557,6 @@ header {
 		gap: 8px;
 
 		input[type='range'] {
-			-webkit-appearance: none;
 			background: rgba(236, 236, 236, 0.1);
 			height: 4px;
 			border-radius: 2px;
@@ -572,7 +577,7 @@ header {
 
 // 8. Global Brand Footer
 .global-footer {
-	background-color: darken($bg, 3%);
+	background-color: color.adjust($bg, $lightness: -3%);
 	border-top: 1px solid rgba(236, 236, 236, 0.05);
 	padding: 60px 0 20px;
 
@@ -899,7 +904,7 @@ header {
 				background-color: rgba(236, 236, 236, 0.15);
 
 				.timeline-progress {
-					background-color: lighten($secondary, 5%);
+					background-color: color.adjust($secondary, $lightness: -5%);
 				}
 			}
 

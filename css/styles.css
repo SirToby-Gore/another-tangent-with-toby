@@ -53,8 +53,11 @@ header .nav-wrapper .logo {
   font-family: "Space Grotesk", sans-serif;
   letter-spacing: -1px;
 }
-header .nav-wrapper .logo span {
+header .nav-wrapper .logo .orange {
   color: #ff7a00;
+}
+header .nav-wrapper .logo .white {
+  color: #ececec;
 }
 header .nav-wrapper .nav-links {
   display: flex;
@@ -431,7 +434,7 @@ header .nav-wrapper .nav-links .station-badge {
 }
 .bottom-player .controls .play-btn:hover {
   transform: scale(1.08);
-  background-color: rgb(0, 142.5, 127.2321428571);
+  background-color: rgb(0, 193.5, 172.7678571429);
 }
 .bottom-player .controls .play-btn svg {
   width: 24px;
@@ -461,7 +464,6 @@ header .nav-wrapper .nav-links .station-badge {
   gap: 8px;
 }
 .bottom-player .volume-box input[type=range] {
-  -webkit-appearance: none;
   background: rgba(236, 236, 236, 0.1);
   height: 4px;
   border-radius: 2px;
@@ -776,7 +778,7 @@ header .nav-wrapper .nav-links .station-badge {
   background-color: rgba(236, 236, 236, 0.15);
 }
 .bottom-player .player-timeline-container .timeline-bar-wrapper:hover .timeline-progress {
-  background-color: rgb(0, 193.5, 172.7678571429);
+  background-color: rgb(0, 142.5, 127.2321428571);
 }
 .bottom-player .player-timeline-container .timeline-bar-wrapper .timeline-progress {
   height: 100%;
