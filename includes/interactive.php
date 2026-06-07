@@ -49,10 +49,14 @@
                 <div class="form-group">
                     <label for="submission_type">Select Segment</label>
                     <select id="submission_type" name="submission_type" required>
-                        <option value="Unsung_Hero">Nominate an Unsung Hero</option>
-                        <option value="Another_World_Hypothetical">Submit an 'In Another World' Question</option>
-                        <option value="Bake_Off_Recipe">Submit a Recipe or Bake Off Challenge</option>
-                        <option value="Bucket_List_Idea">Suggest a Bournemouth Bucket List Challenge</option>
+                        <option value="" disabled selected>-- Select a Segment Topic --</option>
+                        <?php foreach ($segments as $seg): ?>
+                            <?php if (isset($seg['submission'])): ?>
+                                <option value="<?php echo htmlspecialchars($seg['submission']['value']); ?>">
+                                    <?php echo htmlspecialchars($seg['submission']['label']); ?>
+                                </option>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </select>
                 </div>
 

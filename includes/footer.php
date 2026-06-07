@@ -33,8 +33,10 @@
 <script>
     // Inject PHP variables safely into the global JS context
     const STREAM_URL = "<?php echo $streamUrl; ?>";
+
+    <?php echo str_replace("\n", '', preg_replace("/\/\/(?P<comment>.+)/", '', file_get_contents(__DIR__ . '/../js/player.js'))); ?>
 </script>
-<script src="js/player.js"></script>
+<!-- <script src="js/player.js"></script> -->
 </body>
 
 </html>

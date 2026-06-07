@@ -13,8 +13,13 @@
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
 
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+
     <!-- Linked Stylesheet (Compiled from SCSS) -->
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <style>
+        <?php echo str_replace("\n", '', file_get_contents(__DIR__ . '/../css/styles.css')) ?>
+    </style>
 </head>
 
 <body>
