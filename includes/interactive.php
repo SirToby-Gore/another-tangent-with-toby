@@ -1,52 +1,35 @@
 <?php
 $successMessage = "";
 
-// Check if the form was submitted using the POST method and '?submit' is in the URL
+// Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['submit'])) {
-
-    // 1. Parse the local .env file
-    $env_path = __DIR__ . '/.env'; // Points to .env in your project root folder
-    $env_data = [];
-
-    if (file_exists($env_path)) {
-        $env_data = parse_ini_file($env_path);
-    }
-
     // 2. Extract database parameters using your exact lowercase .env keys
-    $db_host = $env_data['hostname'] ?? 'localhost';
-    $db_user = $env_data['username'] ?? 'root';
-    $db_pass = $env_data['password'] ?? '';
-    $db_name = $env_data['database'] ?? '';
+    $db_host = $_ENV['hostname'];
+    $db_user = $_ENV['username'];
+    $db_pass = $_ENV['password'];
+    $db_name = $_ENV['database'];
 
-    // 3. Establish the MySQLi Connection
+    // 3. Establish the MySQLi Connection with the database explicitly chosen
     $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
     if ($conn->connect_error) {
-        // Safe, clean error display
         $successMessage = "Database connection error. Please try again shortly!";
     } else {
         // 4. Capture and sanitize incoming form data
-        // Form field 'sender_name' -> Table column 'sender_name'
         $senderName = filter_input(INPUT_POST, 'sender_name', FILTER_SANITIZE_SPECIAL_CHARS);
-
-        // Form field 'contact_details' -> Table column 'contact_detail'
         $contactDetail = filter_input(INPUT_POST, 'contact_details', FILTER_SANITIZE_SPECIAL_CHARS);
-
-        // Form field 'submission_type' -> Table column 'submission_type'
         $submissionType = filter_input(INPUT_POST, 'submission_type', FILTER_SANITIZE_SPECIAL_CHARS);
-
-        // Form field 'content' -> Table column 'message_content'
         $messageContent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
 
         // 5. Prepare the statement with your exact table column names
-        $stmt = $conn->prepare(<<<SQL
+        $stmt = $conn->prepare("
             INSERT INTO `Submissions` (
                 `sender_name`,
                 `contact_detail`,
                 `submission_type`,
                 `message_content`
             ) VALUES (?, ?, ?, ?)
-        SQL);
+        ");
 
         if ($stmt) {
             // 6. Bind parameters safely ("ssss" means 4 strings)
@@ -60,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['submit'])) {
             }
             $stmt->close();
         } else {
-            $successMessage = "Form preparation error. Please try again!";
+            // This is where your code was failing because no database was selected to prepare the query
+            $successMessage = "Form preparation error: " . htmlspecialchars($conn->error);
         }
         $conn->close();
     }
