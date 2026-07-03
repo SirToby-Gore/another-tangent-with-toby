@@ -164,7 +164,7 @@ $segments = [
         "num" => "11",
         "title" => "Local Legends",
         "bref" => "Spotlighting the non-student heroes of Bournemouth campus.",
-        "desc" => "Spotlighting the everyday heroes of Bournemouth who make the student experience memorable. The Profile: A short, warm-hearted interview with a non-student icon. The Nominations: Ideas include the legendary campus barista, a beloved security guard, a local bus driver, or a stand-out staff member at the student shop.",
+        "desc" => "Spotlighting the everyday heroes of Bournemouth who make the student experience memorable. The Profile: A short, warm-hearted interview with a student or non-student icon. The Nominations: Ideas include the legendary campus barista, a beloved security guard, a local bus driver, or a stand-out staff member at the student shop.",
         "submission" => [
             "value" => "Unsung_Hero",
             "label" => "Nominate an Unsung Hero"
@@ -223,7 +223,7 @@ $segments = [
         "desc" => "Taking a few structured minutes of each broadcast to step completely away from local news. We travel outside our borders to look at the finest cultural components, tracking exceptional music releases, indie charts, specialized games, and fascinating historical traditions from one or more nations across the globe.",
         "submission" => [
             "value" => "A_New_Country",
-            "label" => "Can You To Talk All About My Favourite Country"
+            "label" => "Can You To Talk All About My Favourite Culture"
         ]
     ],
     [
@@ -234,6 +234,52 @@ $segments = [
         "submission" => [
             "value" => "An_Agony",
             "label" => "I've Got an Agony That Needs Sorting"
+        ]
+    ],
+    [
+        "num" => "19",
+        "title" => "The Comedy Minute",
+        "bref" => "A high-pressure 60-second stand-up showcase for student comics.",
+        "desc" => "Collaborating with the BU Stand-Up Society to feature local campus talent. The Clock: Guest comedians get exactly 60 seconds on a hot mic to deliver their best skit, stand-up routine, or one-liners. The Pressure: A loud buzzer sounds the exact millisecond the timer hits zero. The Feedback: Toby and the studio desk give a light-hearted, instant micro-review of the set.",
+        "submission" => [
+            "value" => "Comedy_Minute",
+            "label" => "Apply for The Comedy Minute Open Mic"
+        ]
+    ],
+    [
+        "num" => "20",
+        "title" => "The Great Campus Debates",
+        "bref" => "Defending the absolute worst hills to die on in student life.",
+        "desc" => "A segment dedicated to passionate, highly dramatic arguments over things that do not matter. The Hill: Listeners submit the oddly specific rule or opinion they live by (e.g., 'Cereal is better with warm milk' or 'The library third floor is objectively haunted'). Toby and the guest take opposing sides and spend two minutes acting as high-court lawyers defending or destroying the claim.",
+        "submission" => [
+            "value" => "Campus_Debate",
+            "label" => "Submit a Ridiculous Hill to Die On"
+        ]
+    ],
+    [
+        "num" => "21",
+        "title" => "3 Lies and Maybe a Truth",
+        "bref" => "Guessing which wild claims are facts before forcing a partner to defend them.",
+        "desc" => "A high-stakes game of deception and blind loyalty. The Statements: Person A drops three completely wild personal or general statements—the catch being that anywhere from zero to all three of them could actually be true. The Guess: Person B has to guess which statements are cold hard facts and which are blatant lies. The Defense: Person C (the guest or a live caller) is then immediately put on the spot and forced to dramatically justify and defend Person A's ridiculous claims, regardless of whether they are true or not.",
+    ],
+    [
+        "num" => "22",
+        "title" => "Where did all the music go?",
+        "bref" => "Digging up fresh, undiscovered producers bands.",
+        "desc" => "Shining a spotlight on brand-new, under-the-radar musical creators. The Discovery: Toby selects and plays 1 to 3 standout tracks from artists who are completely undiscovered or he thinks people should listen to. We chat live about their unique sound, production style, and potential. Listeners can submit their own original tracks or nominate local musical friends making waves on campus.",
+        "submission" => [
+            "value" => "New_Artists",
+            "label" => "Submit a Fresh, Undiscovered Track"
+        ]
+    ],
+    [
+        "num" => "23",
+        "title" => "Oi DJ, crank that up!",
+        "bref" => "A high-energy, rapid-fire mini-mix of student dance anthems.",
+        "desc" => "Turning the studio into a high-energy dancefloor for a few fast-paced minutes. Toby hands control over to a guest student DJ or triggers a customized 3-minute mini-mix of clean, crowd-pleasing dance anthems and creative remixes. The Rule: Every track must transition smoothly within 45 seconds to keep the momentum soaring.",
+        "submission" => [
+            "value" => "DJ_Bangers",
+            "label" => "Suggest a High-Energy Track for the Mini-Mix"
         ]
     ]
 ];

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($showName); ?> | <?php echo htmlspecialchars($stationName); ?></title>
+    <title><?= htmlspecialchars($showName); ?> | <?= htmlspecialchars($stationName); ?></title>
 
     <!-- Google Fonts for Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     <!-- Linked Stylesheet (Compiled from SCSS) -->
     <!-- <link rel="stylesheet" href="css/styles.css"> -->
     <style>
-        <?php echo str_replace("\n", '', file_get_contents(__DIR__ . '/../css/styles.css')) ?>
+        <?= str_replace("\n", '', file_get_contents(__DIR__ . '/../css/styles.css')) ?>
     </style>
 </head>
 
@@ -34,8 +34,8 @@
                 <a href="#segments">Segments</a>
                 <a href="#catch-up">Catch Up</a>
                 <a href="#hub">Studio Hub</a>
-                <a href="<?php echo $stationUrl; ?>" class="station-badge"
-                    target="_blank"><?php echo htmlspecialchars($stationName); ?></a>
+                <a href="<?= $stationUrl; ?>" class="station-badge"
+                    target="_blank"><?= htmlspecialchars($stationName); ?></a>
             </nav>
         </div>
     </header>

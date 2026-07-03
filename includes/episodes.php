@@ -77,20 +77,20 @@ usort($episodesList, function ($a, $b) {
                 <?php else: ?>
                     <div class="episodes-grid" id="episodesGrid">
                         <?php foreach ($episodesList as $ep): ?>
-                            <div class="episode-card" data-number="<?php echo $ep['num']; ?>">
+                            <div class="episode-card" data-number="<?= $ep['num']; ?>">
                                 <div>
                                     <div class="ep-meta">
-                                        <span class="ep-tag">Show #<?php echo $ep['num_string']; ?></span>
-                                        <span class="ep-duration"><?php echo htmlspecialchars($ep['duration']); ?></span>
+                                        <span class="ep-tag">Show #<?= $ep['num_string']; ?></span>
+                                        <span class="ep-duration"><?= htmlspecialchars($ep['duration']); ?></span>
                                     </div>
-                                    <h3><?php echo htmlspecialchars($ep['title']); ?></h3>
-                                    <span class="ep-date"><?php echo htmlspecialchars($ep['date']); ?></span>
+                                    <h3><?= htmlspecialchars($ep['title']); ?></h3>
+                                    <span class="ep-date"><?= htmlspecialchars($ep['date']); ?></span>
                                 </div>
 
                                 <button type="button" class="btn-listen-card btn-play-episode"
-                                    data-stream="<?php echo htmlspecialchars($ep['url']); ?>"
-                                    data-title="<?php echo htmlspecialchars($ep['title']); ?>"
-                                    data-episode="Show #<?php echo $ep['num_string']; ?>">
+                                    data-stream="<?= htmlspecialchars($ep['url']); ?>"
+                                    data-title="<?= htmlspecialchars($ep['title']); ?>"
+                                    data-episode="Show #<?= $ep['num_string']; ?>">
                                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                         <path

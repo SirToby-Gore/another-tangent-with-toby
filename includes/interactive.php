@@ -1,3 +1,35 @@
+<?php
+
+$successMessage = "";
+
+if (isset($_GET['submit'])) {
+    $env_data = parse_ini_file('/.env');
+
+    $conn = new mysqli(
+        hostname: $env['hostname'],
+        username: $env['username'],
+        password: $env['password'],
+        database: $env['database'],
+    );
+
+    $stmt = $conn->prepare(<<<SQL
+        INSERT INTO `Submissions` (
+            `sender_name`,
+            `contact_detail`,
+            `submission_type`,
+            `message_content`,
+        ) VALUES (
+            ?,
+            ?,
+            ?,
+            ?,
+        )
+    SQL);
+    $successMessage = $stmt->execute() ? 'Uploaded' : "";
+}
+
+?>
+
 <!-- Interactive Studio Hub -->
 <section class="interactive-section" id="hub">
     <div class="container two-column">
@@ -18,7 +50,7 @@
                     </div>
                     <div class="detail">
                         <span>Direct Dial-In</span>
-                        <strong><?php echo htmlspecialchars($studioPhone); ?></strong>
+                        <strong><?= htmlspecialchars($studioPhone); ?></strong>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -30,7 +62,7 @@
                     </div>
                     <div class="detail">
                         <span>Email the Show</span>
-                        <strong><?php echo htmlspecialchars($emailAddr); ?></strong>
+                        <strong><?= htmlspecialchars($emailAddr); ?></strong>
                     </div>
                 </div>
             </div>
@@ -42,49 +74,52 @@
             <p class="desc">Instantly contribute to our next set of tangents or nominate someone cool!</p>
 
             <?php if ($successMessage !== ""): ?>
-                <div class="alert-success"><?php echo $successMessage; ?></div>
+                <div class="alert-success">
+                    <?= $successMessage; ?>
+                </div>
+            <?php else: ?>
+
+                <form method="POST" action="./?submit">
+                    <div class="form-group">
+                        <label for="submission_type">Select Segment</label>
+                        <select id="submission_type" name="submission_type" required>
+                            <option value="" disabled selected>-- Select a Segment Topic --</option>
+                            <?php foreach ($segments as $seg): ?>
+                                <?php if (isset($seg['submission'])): ?>
+                                    <option value="<?= htmlspecialchars($seg['submission']['value']); ?>">
+                                        <?= htmlspecialchars($seg['submission']['label']); ?>
+                                    </option>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Your Name</label>
+                        <input type="text" id="sender_name" name="sender_name" placeholder="E.g., Jamie from Poole"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact_details">How To Contact You (Optional)</label>
+                        <input type="text" id="contact_details" name="contact_details" placeholder="07123 456789">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">Your Tangent Idea</label>
+                        <textarea id="content" name="content" placeholder="Type your ideas, stories, or shout-outs here..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+                        </svg>
+                        Send to Studio
+                    </button>
+                </form>
             <?php endif; ?>
-
-            <form method="POST" action="./?submit">
-                <div class="form-group">
-                    <label for="submission_type">Select Segment</label>
-                    <select id="submission_type" name="submission_type" required>
-                        <option value="" disabled selected>-- Select a Segment Topic --</option>
-                        <?php foreach ($segments as $seg): ?>
-                            <?php if (isset($seg['submission'])): ?>
-                                <option value="<?php echo htmlspecialchars($seg['submission']['value']); ?>">
-                                    <?php echo htmlspecialchars($seg['submission']['label']); ?>
-                                </option>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="sender_name">Your Name</label>
-                    <input type="text" id="sender_name" name="sender_name" placeholder="E.g., Jamie from Poole"
-                        required>
-                </div>
-
-                <div class="form-group">
-                    <label for="contact_details">How To Contact You (Optional)</label>
-                    <input type="text" id="contact_details" name="contact_details" placeholder="07123 456789">
-                </div>
-
-                <div class="form-group">
-                    <label for="content">Your Tangent Idea</label>
-                    <textarea id="content" name="content" placeholder="Type your ideas, stories, or shout-outs here..."
-                        required></textarea>
-                </div>
-
-                <button type="submit" class="btn">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path
-                            d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
-                    </svg>
-                    Send to Studio
-                </button>
-            </form>
         </div>
 
     </div>
