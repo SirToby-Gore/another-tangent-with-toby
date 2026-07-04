@@ -79,20 +79,20 @@ $segments = [
     [
         "num" => "1",
         "title" => "The Campus Theme Song",
-        "bref" => "Chaining student music tastes into a continuous loop.",
-        "desc" => "To create an infinite, continuous chain of musical tastes across the student body. The Hand-off: Play the song selected by the previous week's final interviewee. The Interview: Stop a random student on campus, play them a 15-second snippet of that song, and ask them to rate it out of 10. The Tangent: Ask them what their absolute favorite song is right now. That song becomes the start of the next chain. The Tie-in: The loop always begins or ends with the episode's in-studio guest."
+        "bref" => "I am chaining student music tastes into a continuous loop.",
+        "desc" => "My goal is to create an infinite chain of musical tastes across campus; it relies entirely on a continuous loop of student recommendations. The Hand-off: I play the track selected by the previous week's final interviewee. The Interview: I stop a random student on campus, play them a 15-second snippet, and ask for a rating out of 10. The Tangent: I ask for their absolute favorite song right now; that track becomes the start of next week's chain. The Tie-in: The loop always begins or ends with my in-studio guest."
     ],
     [
         "num" => "2",
         "title" => "The Bus Stop Diaries",
-        "bref" => "Raw, unedited quick-fire chats live from the bus queue.",
-        "desc" => "Capturing raw, unedited student thoughts during their daily commute. The U1/U2 Lineup: Toby wanders down to the Talbot Campus bus hub with a microphone. The Quick-Fire Hook: Ask students waiting in line one highly specific question (e.g., 'What is the weirdest thing you've seen in the library?' or 'If you had to swap degrees with your flatmate right now, would you pass?'). The Departure: Cut the package off abruptly with the sound of a bus engine revving or air-brakes releasing."
+        "bref" => "I gather raw, quick-fire chats live from the bus queue.",
+        "desc" => "I want to capture raw, unedited student thoughts during the daily commute. The U1/U2 Lineup: I wander down to the Talbot Campus bus hub armed with a microphone. The Quick-Fire Hook: I ask students waiting in line one highly specific question (e.g., 'What is the weirdest thing you've seen in the library?'). The Departure: I cut the package off abruptly with the sound of a revving bus engine."
     ],
     [
         "num" => "3",
         "title" => "Lost in the Triangle",
-        "bref" => "On-the-ground reviews of quirky independent spots.",
-        "desc" => "Exploring Bournemouth's independent, alternative cultural hub. Independent Showcase: Highlight one quirky indie cafe, vintage store, or record shop in Westbourne or The Triangle. The Micro-Review: Toby does a quick, humorous, on-the-ground review of a local product (e.g., 'Rating this vintage shop’s strangest retro jacket'). The Interactive Map: Post the spot on the show's social media accounts, building a crowd-sourced 'Tangent Guide to Bournemouth' using the show's signature color theme.",
+        "bref" => "My on-the-ground reviews of quirky independent spots across Bournemouth.",
+        "desc" => "I explore Bournemouth's independent, alternative cultural hubs; it highlights the unique character of our local area. Independent Showcase: I highlight one quirky indie cafe, vintage store, or record shop in Westbourne or The Triangle. The Micro-Review: I deliver a quick, humorous, on-the-ground review of a local product. The Interactive Map: I post the spot to our social media accounts to build a crowd-sourced guide.",
         "submission" => [
             "value" => "Lost_In_The_Triangle",
             "label" => "I Know A Place That's Nice"
@@ -101,8 +101,8 @@ $segments = [
     [
         "num" => "4",
         "title" => "In Another World",
-        "bref" => "A studio panel show solving useless hypothetical debates.",
-        "desc" => "Settling completely useless, hilarious hypothetical arguments. The Dilemma: Pitch a bizarre scenario to the guest panel (e.g., 'You get £10,000 every time you trip over a curb, but you can only walk in zig-zags. Are you taking it?'). The Cross-Examination: Toby acts as the mock-serious judge, questioning the feasibility of their logic. The Verdict: The studio desk or listeners via text decide the winner.",
+        "bref" => "I host a studio panel show solving useless hypothetical debates.",
+        "desc" => "I settle completely useless, hilarious hypothetical arguments with my guests. The Dilemma: I pitch a bizarre scenario to the guest panel (e.g., 'You get £10,000 every time you trip, but you can only walk in zig-zags'). The Cross-Examination: I act as the mock-serious judge, questioning the feasibility of their logic. The Verdict: The studio desk or listeners via text decide the final winner.",
         "submission" => [
             "value" => "Another_World_Hypothetical",
             "label" => "Submit an 'In Another World' Question"
@@ -111,8 +111,8 @@ $segments = [
     [
         "num" => "5",
         "title" => "Mr. vs. Mrs. of the Flat",
-        "bref" => "Testing flatmates live on air to win funny prizes.",
-        "desc" => "Putting flatmate relationships to the ultimate test live on air. The Confession: Bring two flatmates into the studio. One goes out of the room (or wears soundproof headphones). The Question: Ask the remaining flatmate a question (e.g., 'Who is most likely to leave a dirty pan in the sink for five days?' or 'What is their ultimate comfort food?'). The Match: Bring the second flatmate back in and see if their answers match. The Prize: Correct answers win a minor, funny prize (e.g., a giant cookie, a free smoothie voucher at the SU cafe, or a customized flat trophy).",
+        "bref" => "I test flatmates live on air to win funny prizes.",
+        "desc" => "I put flatmate relationships to the ultimate test live on air. The Confession: I bring two flatmates into the studio; one is sent out or wears soundproof headphones. The Question: I ask the remaining flatmate about their living habits (e.g., 'Who leaves dirty pans the longest?'). The Match: I bring the second flatmate back to see if their answers align. The Prize: Correct matches win a minor, funny prize like a custom flat trophy.",
         "submission" => [
             "value" => "Mr_Vs_Mrs",
             "label" => "Volunteer Your Flatmates to Come on Air"
@@ -121,8 +121,8 @@ $segments = [
     [
         "num" => "6",
         "title" => "Society Showdown",
-        "bref" => "Pitting two wildly different university groups against each other.",
-        "desc" => "Pitting two wildly different university societies against each other in a battle of wits. The Meet-Cute: Representatives from two distinct groups (e.g., BU Dance vs. BU Chess) pitch why their society is superior. The Trivial Debate: A 60-second debate on a completely unrelated, minor topic (e.g., 'Is soup a drink?' or 'Should pajamas be worn to lectures?'). The Decider: Toby or a Twitter poll determines who wins the prestigious 'Tangent Trophy' (a decorated reusable cup).",
+        "bref" => "I pit two wildly different university groups against each other.",
+        "desc" => "I pit two wildly different university societies against each other in a battle of wits. The Meet-Cute: Representatives from two distinct groups pitch why their society is superior. The Trivial Debate: I give them a 60-second debate on a completely unrelated, minor topic (e.g., 'Is soup a drink?'). The Decider: I use a quick poll or my own judgment to award the decorated 'Tangent Trophy'.",
         "submission" => [
             "value" => "Society_showdown",
             "label" => "I Want to See My Society Pitted Against"
@@ -131,20 +131,20 @@ $segments = [
     [
         "num" => "7",
         "title" => "The Headline Game",
-        "bref" => "Deducing real local news headlines from fake ones.",
-        "desc" => "Sifting through the wonderfully bizarre world of local UK journalism. The Regional Spotlight: Each week, Toby selects one specific region of the UK (e.g., Cornwall, Yorkshire, the Scottish Highlands). The Lineup: Toby reads out three bizarre local news headlines from that region. The Twist: Two are real local headlines; one is completely fabricated by Toby. The Guess: The guest or live callers must deduce which headline is the fake."
+        "bref" => "I challenge guests to deduce real local news from my fakes.",
+        "desc" => "I sift through the wonderfully bizarre world of local UK journalism. The Regional Spotlight: Each week, I select one specific region of the UK (e.g., Cornwall or Yorkshire). The Lineup: I read out three bizarre local news headlines from that region. The Twist: Two are real local headlines; one is completely fabricated by me. The Guess: The guest or live callers must deduce which headline is the fake."
     ],
     [
         "num" => "8",
         "title" => "Campus Trivia Challenge",
-        "bref" => "A high-speed micro-quiz between guests and live callers.",
-        "desc" => "A high-speed, trivia-based duel that keeps listeners on the edge of their seats. The Contenders: In-studio guest vs. a live phone caller. The Rapid-Fire Round: Exactly 5 questions. No multiple choice, keeping the pace lightning-fast. The Penalty: Tie-breaker questions must be resolved with a quick-draw guess (e.g., 'How many steps are there in Weymouth House?')."
+        "bref" => "I run a high-speed micro-quiz between guests and live callers.",
+        "desc" => "I host a high-speed, trivia-based duel to keep listeners on edge. The Contenders: My in-studio guest goes head-to-head against a live phone caller. The Rapid-Fire Round: I ask exactly 5 questions with no multiple choice to keep the pace fast. The Penalty: I resolve tie-breakers with a quick-draw guess (e.g., 'How many steps are in Weymouth House?')."
     ],
     [
         "num" => "9",
         "title" => "Live in the Studio",
-        "bref" => "Raw, minimal acoustic sessions tracking local creators.",
-        "desc" => "Promoting local student musical talent in a raw, acoustic setting. The Acoustic Strip-Down: Bands or solo artists perform 1-2 songs live. Instrumentation is kept minimal (acoustic guitar, keyboard, or vocals over backing tracks) to prevent technical lag. The Behind-the-Music Interview: A quick chat about their songwriting process, musical influences, and local student gigs coming up in Bournemouth.",
+        "bref" => "I host raw, minimal acoustic sessions tracking local creators.",
+        "desc" => "I promote local student musical talent in a raw, acoustic setting. The Acoustic Strip-Down: Bands or solo artists perform 1 or 2 songs live in the studio. Instrumentation is kept minimal to prevent technical lag. The Behind-the-Music Interview: I have a quick chat with them about their songwriting process, influences, and upcoming local gigs.",
         "submission" => [
             "value" => "Live_In_The_Studio",
             "label" => "I'd Love to Perform Live On Air"
@@ -153,34 +153,26 @@ $segments = [
     [
         "num" => "10",
         "title" => "Bournemouth Bucket List",
-        "bref" => "Executing classic local student challenges on a budget.",
-        "desc" => "Finding out how much of the classic local experience a student can actually achieve. The Challenge Drop: Toby announces a weekly challenge (e.g., The £5 Date Night Challenge, Walking the entire distance from Bournemouth Pier to Boscombe Pier in fancy dress, or Finding the absolute best milkshake in town). The Review: Toby or a guest recounts their experience trying to execute the challenge, complete with audio logs and photos posted to socials.",
-        "submission" => [
-            "value" => "Bucket_List_Idea",
-            "label" => "Suggest a Bournemouth Bucket List Challenge"
-        ]
+        "bref" => "I execute classic local student challenges on a budget.",
+        "desc" => "I find out how much of the classic local experience a student can achieve. The Challenge Drop: I announce a weekly challenge (e.g., walking from Bournemouth Pier to Boscombe Pier in fancy dress). The Review: My guest or I recount the experience of trying to execute the challenge, complete with audio logs and photos."
     ],
     [
         "num" => "11",
-        "title" => "Local Legends",
-        "bref" => "Spotlighting the non-student heroes of Bournemouth campus.",
-        "desc" => "Spotlighting the everyday heroes of Bournemouth who make the student experience memorable. The Profile: A short, warm-hearted interview with a student or non-student icon. The Nominations: Ideas include the legendary campus barista, a beloved security guard, a local bus driver, or a stand-out staff member at the student shop.",
-        "submission" => [
-            "value" => "Unsung_Hero",
-            "label" => "Nominate an Unsung Hero"
-        ]
+        "title" => "Lecture Hall Lies",
+        "bref" => "I challenge listeners to spot ridiculous facts smuggled into a deadpan academic script.",
+        "desc" => "I test my guest's straight-faced bluffing and the audience's active listening. The Lecture: I hand my guest a short, highly academic-sounding 60-second script on a normal topic. The Smuggle: Hidden seamlessly inside the text are three completely fabricated, absurd fake facts. The Buzzer: A live caller or I must hit the buzzer the exact second we spot a lie; correct guesses win points, but false alarms cost you."
     ],
     [
         "num" => "12",
         "title" => "Lost in the Archives",
-        "bref" => "Throwback musical nostalgia tracks from 10-15 years ago.",
-        "desc" => "An unashamed throwback to retro-nostalgia. The Time Leap: Play a song that was a top-tier banger exactly 10 or 15 years ago (perfect for tapping into late-2000s and early-2010s childhood nostalgia). The Memory Lane Chat: Toby and the guest discuss where they were and what they were doing when this song was ruling the charts."
+        "bref" => "I unearth throwback musical nostalgia from 10 to 15 years ago.",
+        "desc" => "I indulge in an unashamed throwback to retro-nostalgia. The Time Leap: I play a song that was a top-tier banger exactly 10 or 15 years ago; it taps perfectly into late-2000s and early-2010s childhood nostalgia. The Memory Lane Chat: My guest and I discuss where we were and what we were doing when this track ruled the charts."
     ],
     [
         "num" => "13",
         "title" => "The Great Student Bake-Off",
-        "bref" => "Reviewing weird single-mug budget cooking recipe hacks.",
-        "desc" => "Celebrating the highly creative, highly stressful, and budget-conscious culinary hacks of student life. The Challenge: Students submit their ultimate under-£3 recipes or creative, affordable, home-cooked dishes. The Live Tasting/Review: Toby and the guest attempt to evaluate or assemble these low-cost recipes live in the studio, celebrating clever budget planning and rating their viability on a scale from 'Gourmet Masterpiece' to 'Culinary Catastrophe'.",
+        "bref" => "I review weird single-mug budget cooking recipe hacks.",
+        "desc" => "I celebrate the highly creative, highly stressful, and budget-conscious culinary hacks of student life. The Challenge: Students submit their ultimate under-£3 recipes or creative, affordable dishes. The Live Tasting/Review: My guest and I attempt to evaluate or assemble these low-cost recipes live in the studio, rating them from 'Gourmet Masterpiece' to 'Culinary Catastrophe'.",
         "submission" => [
             "value" => "Bake_Off_Recipe",
             "label" => "Submit a Recipe or Bake Off Challenge"
@@ -189,8 +181,8 @@ $segments = [
     [
         "num" => "14",
         "title" => "Spotlight Section",
-        "bref" => "An uninterrupted platform for a guest's passionate topic.",
-        "desc" => "Giving the guest an uninterrupted platform to talk passionately about their specialized topic. The Passion Pitch: The guest gets 3-5 minutes to speak about whatever they want—whether it's their dissertation topic, a niche hobby, or a creative project they are launching.",
+        "bref" => "I provide an uninterrupted platform for a guest's passionate topic.",
+        "desc" => "I give my guest an uninterrupted platform to talk passionately about their specialized topic. The Passion Pitch: The guest gets 3 to 5 minutes to speak about whatever they want; this includes dissertation topics, niche hobbies, or creative projects they are currently launching.",
         "submission" => [
             "value" => "Come_On_The_Show",
             "label" => "I Want To Come On Air and Talk About"
@@ -199,8 +191,8 @@ $segments = [
     [
         "num" => "15",
         "title" => "A Pair of Fresh Ears",
-        "bref" => "Songs we wish we could hear for the first time again.",
-        "desc" => "Revisiting musical milestones. We share, dissect, and listen to one or two legendary songs that we wish with all our hearts we could hear for the absolute first time again, discussing the emotional magic, initial goosebumps, and production layers of that discovery.",
+        "bref" => "I share songs we wish we could hear for the first time again.",
+        "desc" => "I revisit significant musical milestones with my guests. We share, dissect, and listen to one or two legendary tracks that we wish we could hear for the absolute first time again; we focus on the emotional magic, initial goosebumps, and production layers of that discovery.",
         "submission" => [
             "value" => "Fresh_Ears",
             "label" => "I Wish I Could Listen to This Again"
@@ -209,8 +201,8 @@ $segments = [
     [
         "num" => "16",
         "title" => "Read the Room",
-        "bref" => "A mind-reading game of numbers and situational categories.",
-        "desc" => "Two people pick a secret number inside their head on a scale from 1 to 10. The third person picks a category, e.g., condiments. The two players then choose an item that aligns with their secret rating (e.g., an 8 or 9 merits saying 'sweet chili', while a 3 or 4 merits saying 'mustard'). The person who chose the category must guess their exact numbers. If either player gives a weird choice that breaks the logic of their rating (e.g., rating a 3 and naming 'tzatziki'), they get docked a point!",
+        "bref" => "I run a mind-reading game of numbers and situational categories.",
+        "desc" => "I host a mind-reading game based on numbers and situational categories. The Setup: Two people pick a secret number inside their head from 1 to 10. The Category: The third person picks a category, i.e., condiments. The Alignment: The players choose an item matching their secret rating (e.g., an 8 merits saying 'sweet chili'). The Guess: The category selector must guess the exact numbers; breaking the logic of the rating docks you a point.",
         "submission" => [
             "value" => "Read_The_Room",
             "label" => "A Topic For Read The Room"
@@ -219,8 +211,8 @@ $segments = [
     [
         "num" => "17",
         "title" => "Beyond The Border",
-        "bref" => "Exploring the best music and customs from global cultures.",
-        "desc" => "Taking a few structured minutes of each broadcast to step completely away from local news. We travel outside our borders to look at the finest cultural components, tracking exceptional music releases, indie charts, specialized games, and fascinating historical traditions from one or more nations across the globe.",
+        "bref" => "I explore the best music and customs from global cultures.",
+        "desc" => "I take a few structured minutes of each broadcast to step completely away from local news. I travel outside our borders to look at the finest cultural components; I track exceptional music releases, indie charts, specialized games, and fascinating historical traditions from nations across the globe.",
         "submission" => [
             "value" => "A_New_Country",
             "label" => "Can You To Talk All About My Favourite Culture"
@@ -229,8 +221,8 @@ $segments = [
     [
         "num" => "18",
         "title" => "Agony Uncle",
-        "bref" => "Solving student dilemmas with witty, unhelpful, and insightful advice.",
-        "desc" => "Toby solves life's most ridiculous student dilemmas with witty, sarcastic, and occasionally insightful advice. Listeners submit their funniest, most trivial daily crises via the studio text line or social media (e.g., 'My flatmate is using my mug to water their cactus' or 'How do I escape an awkward conversation in the library?'). Toby diagnoses the problem, delivering funny, witty, and highly sarcastic advice, wrapping up each segment with one surprisingly useful and genuinely helpful life lesson to catch everyone off guard.",
+        "bref" => "I solve student dilemmas with witty, sarcastic, and occasionally insightful advice.",
+        "desc" => "I solve life's most ridiculous student dilemmas with witty, sarcastic, and occasionally insightful advice. The Crisis: Listeners submit their funniest, most trivial daily crises via the studio text line or social media. My Diagnosis: I analyze the problem, deliver funny, highly sarcastic advice, and wrap up each segment with one surprisingly useful, genuine life lesson to catch everyone off guard.",
         "submission" => [
             "value" => "An_Agony",
             "label" => "I've Got an Agony That Needs Sorting"
@@ -238,9 +230,9 @@ $segments = [
     ],
     [
         "num" => "19",
-        "title" => "The Comedy Minute",
-        "bref" => "A high-pressure 60-second stand-up showcase for student comics.",
-        "desc" => "Collaborating with the BU Stand-Up Society to feature local campus talent. The Clock: Guest comedians get exactly 60 seconds on a hot mic to deliver their best skit, stand-up routine, or one-liners. The Pressure: A loud buzzer sounds the exact millisecond the timer hits zero. The Feedback: Toby and the studio desk give a light-hearted, instant micro-review of the set.",
+        "title" => "60 Seconds To Stand Up",
+        "bref" => "I give student comics a high-pressure 60-second stand-up showcase.",
+        "desc" => "I collaborate with the BU Stand-Up Society to feature local campus talent. The Clock: Guest comedians get exactly 60 seconds on a hot mic to deliver their best skit or one-liners. The Pressure: A loud buzzer sounds the exact millisecond the timer hits zero. The Feedback: The studio desk and I give a light-hearted, instant micro-review of the set.",
         "submission" => [
             "value" => "Comedy_Minute",
             "label" => "Apply for The Comedy Minute Open Mic"
@@ -249,8 +241,8 @@ $segments = [
     [
         "num" => "20",
         "title" => "The Great Campus Debates",
-        "bref" => "Defending the absolute worst hills to die on in student life.",
-        "desc" => "A segment dedicated to passionate, highly dramatic arguments over things that do not matter. The Hill: Listeners submit the oddly specific rule or opinion they live by (e.g., 'Cereal is better with warm milk' or 'The library third floor is objectively haunted'). Toby and the guest take opposing sides and spend two minutes acting as high-court lawyers defending or destroying the claim.",
+        "bref" => "I defend the absolute worst hills to die on in student life.",
+        "desc" => "I dedicate a segment to passionate, highly dramatic arguments over things that do not matter. The Hill: Listeners submit the oddly specific rule or opinion they live by (e.g., 'Cereal is better with warm milk'). The Defense: My guest and I take opposing sides; we spend two minutes acting as high-court lawyers defending or destroying the claim.",
         "submission" => [
             "value" => "Campus_Debate",
             "label" => "Submit a Ridiculous Hill to Die On"
@@ -259,14 +251,14 @@ $segments = [
     [
         "num" => "21",
         "title" => "3 Lies and Maybe a Truth",
-        "bref" => "Guessing which wild claims are facts before forcing a partner to defend them.",
-        "desc" => "A high-stakes game of deception and blind loyalty. The Statements: Person A drops three completely wild personal or general statements—the catch being that anywhere from zero to all three of them could actually be true. The Guess: Person B has to guess which statements are cold hard facts and which are blatant lies. The Defense: Person C (the guest or a live caller) is then immediately put on the spot and forced to dramatically justify and defend Person A's ridiculous claims, regardless of whether they are true or not.",
+        "bref" => "I make guests guess wild claims before forcing a partner to defend them.",
+        "desc" => "I host a high-stakes game of deception and blind loyalty. The Statements: Person A drops three completely wild personal or general statements; anywhere from zero to all three could be true. The Guess: Person B must guess which statements are facts and which are blatant lies. The Defense: I immediately put Person C on the spot, forcing them to dramatically justify and defend Person A's ridiculous claims regardless of the truth."
     ],
     [
         "num" => "22",
         "title" => "Where did all the music go?",
-        "bref" => "Digging up fresh, undiscovered producers bands.",
-        "desc" => "Shining a spotlight on brand-new, under-the-radar musical creators. The Discovery: Toby selects and plays 1 to 3 standout tracks from artists who are completely undiscovered or he thinks people should listen to. We chat live about their unique sound, production style, and potential. Listeners can submit their own original tracks or nominate local musical friends making waves on campus.",
+        "bref" => "I dig up fresh, undiscovered student producers and local bands.",
+        "desc" => "I shine a spotlight on brand-new, under-the-radar musical creators. The Discovery: I select and play 1 to 3 standout tracks from artists who are completely undiscovered, or tracks I think people should hear. The Critique: We chat live about their unique sound, production style, and potential. The Connection: Listeners can submit their original tracks or nominate local musical friends making waves on campus.",
         "submission" => [
             "value" => "New_Artists",
             "label" => "Submit a Fresh, Undiscovered Track"
@@ -275,11 +267,31 @@ $segments = [
     [
         "num" => "23",
         "title" => "Oi DJ, crank that up!",
-        "bref" => "A high-energy, rapid-fire mini-mix of student dance anthems.",
-        "desc" => "Turning the studio into a high-energy dancefloor for a few fast-paced minutes. Toby hands control over to a guest student DJ or triggers a customized 3-minute mini-mix of clean, crowd-pleasing dance anthems and creative remixes. The Rule: Every track must transition smoothly within 45 seconds to keep the momentum soaring.",
+        "bref" => "I host a high-energy, rapid-fire mini-mix of student dance anthems.",
+        "desc" => "I turn the studio into a high-energy dancefloor for a few fast-paced minutes. The Mix: I hand control over to a guest student DJ or trigger a customized 3-minute mini-mix of clean, crowd-pleasing dance anthems and creative remixes. The Rule: Every track must transition smoothly within 45 seconds to keep the momentum soaring.",
         "submission" => [
             "value" => "DJ_Bangers",
             "label" => "Suggest a High-Energy Track for the Mini-Mix"
+        ]
+    ],
+    [
+        "num" => "24",
+        "title" => "Talbot Campus Castaway",
+        "bref" => "I challenge guests to select three essentials to survive a semester locked inside Weymouth House.",
+        "desc" => "I run a local spin on a legendary format. The Scenario: You are locked inside the Weymouth House media building on Talbot Campus for an entire semester with no way out. The Inventory: You are permitted to bring exactly three essential items to keep you sane: one specific snack from the campus shop, one track to blast over the student radio speakers, and one completely useless personal item from your flat. My guest and I rate your kit from 'Survival Genius' to 'Dorm Room Disaster'.",
+        "submission" => [
+            "value" => "Campus_Castaway",
+            "label" => "Submit My Survival Kit for Talbot Campus Castaway"
+        ]
+    ],
+    [
+        "num" => "25",
+        "title" => "The Alarm Clock Review",
+        "bref" => "I blast and review the absolute worst songs students use to wake up in the morning.",
+        "desc" => "I analyze the sounds of morning dread. The Sound: Students submit the exact alarm ringtone or song they use to force themselves out of bed for early lectures. The Breakdown: I play the track live on air, analyze its panic-inducing qualities, and suggest a ridiculous, hyper-energetic replacement song to completely change your morning routine.",
+        "submission" => [
+            "value" => "Alarm_Review",
+            "label" => "Submit Your Dreaded Morning Alarm Sound"
         ]
     ]
 ];

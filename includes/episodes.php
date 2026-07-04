@@ -5,39 +5,40 @@
  */
 require_once __DIR__ . '/../config.php';
 
+// Re-index the master segments database by its 'num' key for instant runtime mapping
+$segmentsByNum = array_column($segments ?? [], null, 'num');
+
 // Prepare lists of all episodes
 $episodesList = [];
 $episodesDir = __DIR__ . '/../episodes';
 
 if (is_dir($episodesDir)) {
-    $files = glob($episodesDir . '/*.url');
+    // Scan for our new dynamic PHP configuration manifests
+    $files = glob($episodesDir . '/*.php');
     foreach ($files as $file) {
-        $filename = basename($file);
-        $num = pathinfo($filename, PATHINFO_FILENAME); // e.g., "001"
+        // Safe check to prevent including index/config files accidentally
+        $epData = require $file;
 
-        // Parse the standard INI-style .url file format
-        $iniData = parse_ini_file($file, true, INI_SCANNER_RAW);
-        if (isset($iniData['InternetShortcut']['URL'])) {
-            $url = $iniData['InternetShortcut']['URL'];
+        if (is_array($epData) && isset($epData['meta']['episode_number'])) {
+            $numString = $epData['meta']['episode_number'];
+            $meta = $epData['meta'];
 
-            // Allow optional custom metadata within the .url file
-            $title = $iniData['InternetShortcut']['Title'] ?? "Tangent Episode #" . ltrim($num, '0');
-            $date = $iniData['InternetShortcut']['Date'] ?? "Broadcast Session";
-            $duration = $iniData['InternetShortcut']['Duration'] ?? "1 Hour";
-
+            // Build the catalog item out of the structured manifest data
             $episodesList[] = [
-                'num' => intval($num),
-                'num_string' => $num,
-                'title' => $title,
-                'date' => $date,
-                'duration' => $duration,
-                'url' => $url
+                'num' => intval($numString),
+                'num_string' => str_pad($numString, 3, '0', STR_PAD_LEFT), // Formats cleanly to "001"
+                'title' => $meta['title'] ?? "Tangent Episode #" . $numString,
+                'date' => $meta['record_date'] ?? "Broadcast Session",
+                'guest' => $meta['guest_name'] ?? "Studio Guest",
+                'description' => $meta['description'] ?? "",
+                'url' => $meta['audio_src'] ?? "", // The dynamic playback path
+                'lineup' => $epData['lineup'] ?? []
             ];
         }
     }
 }
 
-// Default sort: highest episode number first (newest)
+// Default sort: highest episode number first (newest detours upfront)
 usort($episodesList, function ($a, $b) {
     return $b['num'] <=> $a['num'];
 });
@@ -45,7 +46,6 @@ usort($episodesList, function ($a, $b) {
 
 <section id="catch-up">
     <section>
-        <!-- Main Episode Archive Hub -->
         <section class="episodes-archive">
             <div class="container">
 
@@ -81,13 +81,34 @@ usort($episodesList, function ($a, $b) {
                                 <div>
                                     <div class="ep-meta">
                                         <span class="ep-tag">Show #<?= $ep['num_string']; ?></span>
-                                        <span class="ep-duration"><?= htmlspecialchars($ep['duration']); ?></span>
+                                        <span class="ep-duration">Guest: <?= htmlspecialchars($ep['guest']); ?></span>
                                     </div>
                                     <h3><?= htmlspecialchars($ep['title']); ?></h3>
                                     <span class="ep-date"><?= htmlspecialchars($ep['date']); ?></span>
+
+                                    <?php if (!empty($ep['description'])): ?>
+                                        <p class="ep-card-desc" style="margin: 10px 0; font-size: 0.9em; opacity: 0.85;">
+                                            <?= htmlspecialchars($ep['description']); ?>
+                                        </p>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($ep['lineup'])): ?>
+                                        <div class="ep-segments-lineup"
+                                            style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px;">
+                                            <?php foreach ($ep['lineup'] as $segNum): ?>
+                                                <?php if (isset($segmentsByNum[$segNum])): ?>
+                                                    <span class="segment-pill"
+                                                        style="font-size: 0.75em; padding: 3px 8px; background: rgba(255,255,255,0.1); border-radius: 4px;"
+                                                        title="<?= htmlspecialchars($segmentsByNum[$segNum]['bref']); ?>">
+                                                        <?= htmlspecialchars($segmentsByNum[$segNum]['title']); ?>
+                                                    </span>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
 
-                                <button type="button" class="btn-listen-card btn-play-episode"
+                                <button type="button" class="btn-listen-card btn-play-episode" style="margin-top: 15px;"
                                     data-stream="<?= htmlspecialchars($ep['url']); ?>"
                                     data-title="<?= htmlspecialchars($ep['title']); ?>"
                                     data-episode="Show #<?= $ep['num_string']; ?>">
@@ -106,7 +127,6 @@ usort($episodesList, function ($a, $b) {
             </div>
         </section>
 
-        <!-- Interactive Client-side Sort Script -->
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const sortToggle = document.getElementById('sortToggle');

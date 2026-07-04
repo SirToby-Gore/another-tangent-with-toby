@@ -2,7 +2,7 @@
 <section class="segment-section" id="segments">
     <div class="container">
         <div class="section-header">
-            <h2>Our Favourite Segments</h2>
+            <h2>My Favourite Segments</h2>
             <p>We keep the show fast, unpredictable, and exciting by rotating these legendary games and community
                 features.</p>
         </div>
