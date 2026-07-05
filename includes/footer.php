@@ -3,18 +3,18 @@
     <div class="container footer-grid">
         <div class="footer-about">
             <h3>Another <span>Tangent</span></h3>
-            <p>Broadcast live from <?= $studioLoc; ?>. Connecting Bournemouth's vibrant student community one
+            <p>Broadcast live from <?= $studioLoc ?>. Connecting Bournemouth's vibrant student community one
                 tangent at a time.</p>
         </div>
 
         <div class="footer-socials">
             <h4>Join the Detour</h4>
             <div class="social-links">
-                <a href="<?= htmlspecialchars($instagramLink); ?>" target="_blank" class="social-badge"
+                <a href="<?= htmlspecialchars($instagramLink) ?>" target="_blank" class="social-badge"
                     aria-label="Instagram">
                     <span>Instagram</span>
                 </a>
-                <a href="<?= htmlspecialchars($youtubeLink); ?>" target="_blank" class="social-badge"
+                <a href="<?= htmlspecialchars($youtubeLink) ?>" target="_blank" class="social-badge"
                     aria-label="YouTube">
                     <span>YouTube</span>
                 </a>
@@ -23,7 +23,7 @@
     </div>
     <div class="footer-bottom">
         <div class="container">
-            <p>&copy; <?= date('Y'); ?> Nerve Radio &amp; Toby. Built for Bournemouth University &amp; AUB
+            <p>&copy; <?= date('Y') ?> Nerve Radio &amp; Toby. Built for Bournemouth University &amp; AUB
                 students.</p>
         </div>
     </div>
@@ -32,9 +32,9 @@
 <!-- Global Footer / Scripts -->
 <script>
     // Inject PHP variables safely into the global JS context
-    const STREAM_URL = "<?= $streamUrl; ?>";
+    const STREAM_URL = "<?= $streamUrl ?>";
 
-    <?= str_replace("\n", '', preg_replace("/\/\/(?P<comment>.+)/", '', file_get_contents(__DIR__ . '/../js/player.js'))); ?>
+    <?= str_replace("\n", '', preg_replace("/\/\/(?P<comment>.+)/", '', file_get_contents(__DIR__ . '/../js/player.js'))) ?>
 </script>
 <!-- <script src="js/player.js"></script> -->
 </body>

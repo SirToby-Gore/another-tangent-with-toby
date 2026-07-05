@@ -17,6 +17,9 @@ body {
   padding-bottom: 120px;
 }
 
+a:hover, a:focus-visible, a:active {
+  text-decoration: underline;
+}
 a:target {
   display: block;
   position: relative;
@@ -326,6 +329,17 @@ header .nav-wrapper .nav-links .station-badge {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 20px;
   margin-bottom: 20px;
+}
+.segment-popover-modal .popover-header .number-badge {
+  background-color: #ff7a00;
+  color: #1e1e24;
+  aspect-ratio: 1;
+  width: 2rem;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
 .segment-popover-modal .popover-header h2 {
   font-size: 1.6rem;
@@ -810,6 +824,7 @@ header .nav-wrapper .nav-links .station-badge {
 .ep-duration {
   color: #a0a0aa;
   font-size: 0.8rem;
+  max-width: 60%;
 }
 
 .episode-card h3 {

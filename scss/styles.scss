@@ -41,6 +41,12 @@ body {
 }
 
 a {
+	&:hover,
+	&:focus-visible,
+	&:active {
+		text-decoration: underline;
+	}
+	
 	&:target {
 		display: block;
 		position: relative;
@@ -399,6 +405,21 @@ header {
 		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 		padding-bottom: 20px;
 		margin-bottom: 20px;
+
+		.number-badge {
+			background-color: $primary;
+			color: $bg;
+
+			aspect-ratio: 1;
+			width: 2rem;
+			border-radius: 50%;
+
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+
+			font-weight: bold;
+		}
 
 		h2 {
 			font-size: 1.6rem;
@@ -952,6 +973,7 @@ header {
 .ep-duration {
 	color: #a0a0aa;
 	font-size: 0.8rem;
+	max-width: 60%;
 }
 
 .episode-card h3 {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($showName); ?> | <?= htmlspecialchars($stationName); ?></title>
+    <title><?= htmlspecialchars($showName) ?> | <?= htmlspecialchars($stationName) ?></title>
 
     <!-- Google Fonts for Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,8 +34,8 @@
                 <a href="#segments">Segments</a>
                 <a href="#catch-up">Catch Up</a>
                 <a href="#hub">Studio Hub</a>
-                <a href="<?= $stationUrl; ?>" class="station-badge"
-                    target="_blank"><?= htmlspecialchars($stationName); ?></a>
+                <a href="<?= $stationUrl ?>" class="station-badge"
+                    target="_blank"><?= htmlspecialchars($stationName) ?></a>
             </nav>
         </div>
     </header>
