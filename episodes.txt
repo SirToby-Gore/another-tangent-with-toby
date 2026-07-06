@@ -1,0 +1,310 @@
+<?php
+return [
+	"meta" => [
+		"episode_number" => "1",
+		"title"          => "The Very First Agony",
+		"record_date"    => "13/10/2025",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/310_agony-uncle_2025-10-13_11-00.mp3",
+		"description"    => "Agony Uncle"
+	],
+	"lineup" => [
+		"642eb70ddd"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "2",
+		"title"          => "Your Agony Uncle Returns",
+		"record_date"    => "20/10/2025",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/310_agony-uncle_2025-10-20_11-00.mp3",
+		"description"    => "Agony Uncle"
+	],
+	"lineup" => [
+		"642eb70ddd"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "3",
+		"title"          => "The Agony Uncle Come Again",
+		"record_date"    => "03/11/2025",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/310_agony-uncle_2025-11-03_11-00.mp3",
+		"description"    => "Agony Uncle"
+	],
+	"lineup" => [
+		"642eb70ddd"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "4",
+		"title"          => "You Know What Time it is?",
+		"record_date"    => "10/11/2025",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/310_agony-uncle_2025-11-10_11-00.mp3",
+		"description"    => "Agony Uncle"
+	],
+	"lineup" => [
+		"642eb70ddd"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "5",
+		"title"          => "Does Your Friend Have Lots Of Agonies Too?",
+		"record_date"    => "17/11/2025",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/310_agony-uncle_2025-11-17_11-00.mp3",
+		"description"    => "Agony Uncle"
+	],
+	"lineup" => [
+		"642eb70ddd"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "6",
+		"title" => "Your Agony Uncle Has Multiplied",
+		"record_date" => "01/12/2025",
+		"guests" => [
+			"Ben (The Heavy Metal Show)"
+		],
+		"audio_src" => "https://archive.nervemedia.org.uk/shows/310_agony-uncle_2025-12-01_11-00.mp3",
+		"description" => "Agony Uncle"
+	],
+	"lineup" => [
+		"642eb70ddd"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "7",
+		"title" => "Your Agony Uncles Return For a Second Week",
+		"guests" => [
+			"Ben (The Heavey Metal Show)"
+		],
+		"record_date" => "08/12/2025",
+		"audio_src" => "https://archive.nervemedia.org.uk/shows/310_agony-uncle_2025-12-08_11-00.mp3",
+		"description" => "Agony Uncle"
+	],
+	"lineup" => [
+		"642eb70ddd"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "8",
+		"title" => "Your Agony Uncles And Your Agony Auntie",
+		"guests" => [
+			"Ben (The Heavy Metal Show)",
+			"Ashe"
+		],
+		"record_date" => "15/12/2025",
+		"audio_src" => "https://archive.nervemedia.org.uk/shows/310_agony-uncle_2025-12-15_11-00.mp3",
+		"description" => "Agony Uncle"
+	],
+	"lineup" => [
+		"642eb70ddd"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "9",
+		"title"          => "Your Agonies From Over Christmas",
+		"record_date"    => "12/01/2026",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/310_agony-uncle_2026-01-12_11-00.mp3",
+		"description"    => "Agony Uncle"
+	],
+	"lineup" => [
+		"642eb70ddd"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "10",
+		"title" => "FM Week part 1",
+		"record_date" => "03/02/2026",
+		"guests" => [
+			"Giulia (Giulia Peculiar)",
+			"Ben (The Heavy Metal Show)",
+		],
+		"audio_src" => "https://archive.nervemedia.org.uk/shows/372_direct-recording_2026-02-03_11-00.mp3",
+		"description" => "In Another World"
+	],
+	"lineup" => [
+		"76b0ceaeba"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "11",
+		"title"          => "FM Week part 2",
+		"record_date"    => "03/02/2026",
+		"guests"         => [
+		    "Giulia (Giulia Peculiar)",
+		    "Ben (The Heavy Metal Show)",
+		],
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_direct-recording_2026-02-03_12-00.mp3",
+		"description"    => "In Another World"
+	],
+	"lineup" => [
+		"76b0ceaeba"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "12",
+		"title"          => "Days Of The Week",
+		"record_date"    => "13/02/2026",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-02-13_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "13",
+		"title"          => "Japanese and The Japonics",
+		"guests"         => [
+			"Ashe"
+		],
+		"record_date"    => "20/02/2026",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-02-20_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "14",
+		"title"          => "The Indian Languages",
+		"record_date"    => "27/02/2026",
+		"guests"         => [
+			"Priya"
+		],
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-02-27_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "15",
+		"title"          => "Nautical Terms",
+		"record_date"    => "06/03/2026",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-03-06_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "16",
+		"title"          => "Norwegian and AI",
+		"record_date"    => "20/03/2026",
+		"guests"         => [
+			"Vegard"
+		],
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-03-20_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "17",
+		"title"          => "The East Anglian Dialects",
+		"record_date"    => "24/04/2026",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-04-24_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "18",
+		"title"          => "The Calender",
+		"record_date"    => "01/05/2026",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-05-01_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "19",
+		"title"          => "My Review On The English Language",
+		"record_date"    => "08/05/2026",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-05-08_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "20",
+		"title"          => "Musical Language",
+		"record_date"    => "15/05/2026",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-05-15_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "21",
+		"title"          => "Funny Place Names",
+		"record_date"    => "22/05/2026",
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-05-22_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "22",
+		"title"          => "The Turkic Languages",
+		"record_date"    => "05/06/2026",
+		"guests"         => [
+			"Bizar"
+		],
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-06-05_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];<?php
+return [
+	"meta" => [
+		"episode_number" => "23",
+		"title"          => "Best Bits Of International Cuisine",
+		"record_date"    => "12/06/2026",
+		"guests"         => [
+			"Bizar"
+		],
+		"audio_src"      => "https://archive.nervemedia.org.uk/shows/372_beyond-the-boarder_2026-06-12_10-00.mp3",
+		"description"    => "Beyond The Border"
+	],
+	"lineup" => [
+		"8958333e2a"
+	]
+];
