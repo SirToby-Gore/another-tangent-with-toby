@@ -24,12 +24,28 @@ if (is_dir($episodesDir)) {
             // Handle flexible guest formats (fallback to old guest_name string if guests array is missing)
             $guestsInput = $meta['guests'] ?? ($meta['guest_name'] ?? []);
             if (!is_array($guestsInput)) {
-                $guestsList = !empty($guestsInput) ? [$guestsInput] : [];
+                $rawGuests = !empty($guestsInput) ? [$guestsInput] : [];
             } else {
-                $guestsList = array_filter($guestsInput); // Strip empty entries
+                $rawGuests = array_filter($guestsInput);
             }
 
-            // Clean string formatting for the UI string
+            // Convert guest strings or arrays into HTML anchor tags / formatted text
+            $guestsList = [];
+            foreach ($rawGuests as $g) {
+                if (is_array($g)) {
+                    $name = htmlspecialchars($g['name'] ?? '');
+                    if (!empty($g['link'])) {
+                        $link = htmlspecialchars($g['link']);
+                        $guestsList[] = "<a href=\"{$link}\" target=\"_blank\" class=\"ep-guest-link\">{$name}</a>";
+                    } else {
+                        $guestsList[] = $name;
+                    }
+                } elseif (!empty($g)) {
+                    $guestsList[] = htmlspecialchars($g);
+                }
+            }
+
+            // Clean string formatting for the UI string (now containing HTML)
             if (empty($guestsList)) {
                 $guestsString = "Solo Session";
             } elseif (count($guestsList) === 1) {
@@ -99,7 +115,7 @@ usort($episodesList, function ($a, $b) {
                                 <div>
                                     <div class="ep-meta">
                                         <span class="ep-tag">Show #<?= $ep['num_string'] ?></span>
-                                        <span class="ep-duration"><?= htmlspecialchars($ep['guests_display']) ?></span>
+                                        <span class="ep-duration"><?= $ep['guests_display'] ?></span>
                                     </div>
                                     <h3><?= htmlspecialchars($ep['title']) ?></h3>
                                     <span class="ep-date"><?= htmlspecialchars($ep['date']) ?></span>

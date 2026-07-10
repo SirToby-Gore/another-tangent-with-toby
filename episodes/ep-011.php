@@ -4,8 +4,14 @@ return [
         "episode_number" => "11",
         "title" => "FM Week part 2",
         "guests" => [
-            "Giulia (Giulia Peculiar)",
-            "Ben (The Heavy Metal Show)"
+            [
+                "name" => "Giulia (Giulia Peculiar)",
+                "link" => "https://www.instagram.com/giulia_perculiar/"
+            ],
+            [
+                "name" => "Ben (The Heavy Metal Show)",
+                "link" => "https://www.instagram.com/nervemetalbu/"
+            ]
         ],
         "record_date" => "03/02/2026",
         "audio_src" => "https://archive.nervemedia.org.uk/shows/372_direct-recording_2026-02-03_12-00.mp3",
