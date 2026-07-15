@@ -101,22 +101,20 @@ $segments = [
         ",
     ],
     [
-        "id" => "8958333e2a",
+        "id" => "0cb2988177",
         "num" => $i++,
-        "title" => "Beyond The Border",
-        "bref" => "I explore and appreciate the finest music and customs from **global cultures**.",
+        "title" => "Linked by a Thread",
+        "bref" => "I connect songs through increasingly ridiculous threads of **trivia and musical coincidences**.",
         "desc" => "
-            I take a few structured minutes of each broadcast to step completely away from local news. I travel outside our borders to appreciate exceptional cultural components from nations across the globe.
+            I attempt to build a musical chain where every track connects to the previous one via highly convoluted and absurd relationships.
             
-            We track:
-            * Exceptional music releases and indie charts
-            * Traditional and specialised localized games
-            * Fascinating historical customs and arts
+            The link might be:
+            * A shared chord progression
+            * A shared background session singer
+            * Highly obscure trivia (e.g., *both singers visited the same restaurant on their fifth birthdays*)
+            
+            The studio guest must try to guess the secret thread of logic before the track ends.
         ",
-        "submission" => [
-            "value" => "A_New_Country",
-            "label" => "Can You To Talk All About My Favourite Culture"
-        ]
     ],
     [
         "id" => "37748e8b90",
@@ -136,32 +134,21 @@ $segments = [
         ]
     ],
     [
-        "id" => "d838c24fef",
+        "id" => "d5b127ef9a",
         "num" => $i++,
-        "title" => "Lost in the Archives",
-        "bref" => "I unearth throwback **musical nostalgia** from 10 to 15 years ago.",
+        "title" => "In The Archives With A Pair Of Fresh Ears",
+        "bref" => "Guests react to a **mystery track** completely blind before predicting its legacy 15 years from now.",
         "desc" => "
-            I indulge in an unashamed throwback to retro-nostalgia. I play a song that was a top-tier banger exactly `10` or `15` years ago; it taps perfectly into **late-2000s** and **early-2010s** childhood nostalgia.
+            We put our guest's musical instincts to the ultimate test! We slide headphones onto them and play a mystery track they have completely never heard before—ranging from fresh, undiscovered campus demos to hidden global indie gems.
             
-            Taking a trip down memory lane, my guest and I discuss where we were and what we were doing when this track ruled the charts.
-        ",
-    ],
-    [
-        "id" => "2069789fde",
-        "num" => $i++,
-        "title" => "A Pair of Fresh Ears",
-        "bref" => "I share songs we wish we could hear for the **absolute first time** again.",
-        "desc" => "
-            I revisit significant musical milestones with my guests. We share, dissect, and listen to one or two legendary tracks that we wish we could hear for the absolute first time again.
+            * **The Blind Reaction:** The guest reacts live to the raw production layers, trying to guess the artist's vibe, genre, or background purely on first-listen goosebumps.
+            * **The Time Capsule Test:** Once the track is revealed, we fast-forward 15 years. The panel must debate: *Does this song have the hook to survive a decade? What core memories will future students associate with it?*
             
-            We focus entirely on:
-            * The emotional magic
-            * Initial goosebumps
-            * Intricate production layers of that discovery
+            We wrap up by rating its potential to become a nostalgic throwback classic on a scale of 1 to 10.
         ",
         "submission" => [
-            "value" => "Fresh_Ears",
-            "label" => "I Wish I Could Listen to This Again"
+            "value" => "Blind_Future_Classic",
+            "label" => "Submit an Original Track for the Blind Time Capsule Test"
         ]
     ],
     [
@@ -219,7 +206,15 @@ $segments = [
         "title" => "The Headline Game",
         "bref" => "I challenge guests to deduce **real local news** from my fakes.",
         "desc" => "
-            I sift through the wonderfully bizarre world of local UK journalism. Each week, I select one specific region of the UK (e.g., *Cornwall* or *Yorkshire*).\n\nI read out three bizarre local news headlines from that region:\n1. Real local headline\n2. Real local headline\n3. **Completely fabricated by me**\n\nThe guest or live callers must deduce which headline is the fake.
+            I sift through the wonderfully bizarre world of local UK journalism. Each week, I select one specific region of the UK (e.g., *Cornwall* or *Yorkshire*).
+            
+            I read out three bizarre local news headlines from that region:
+
+            1. Real local headline
+            2. Real local headline
+            3. **Completely fabricated by me**
+            
+            The guest or live callers must deduce which headline is the fake.
         ",
     ],
     [
@@ -270,22 +265,6 @@ $segments = [
         ",
     ],
     [
-        "id" => "0cb2988177",
-        "num" => $i++,
-        "title" => "Linked by a Thread",
-        "bref" => "I connect songs through increasingly ridiculous threads of **trivia and musical coincidences**.",
-        "desc" => "
-            I attempt to build a musical chain where every track connects to the previous one via highly convoluted and absurd relationships.
-            
-            The link might be:
-            * A shared chord progression
-            * A shared background session singer
-            * Highly obscure trivia (e.g., *both singers visited the same restaurant on their fifth birthdays*)
-            
-            The studio guest must try to guess the secret thread of logic before the track ends.
-        ",
-    ],
-    [
         "id" => "92be7142fa",
         "num" => $i++,
         "title" => "You'd Never Guess",
@@ -299,6 +278,23 @@ $segments = [
             "value" => "you_would_never_guess",
             "label" => "Submit a Bizarre Fact for You'd Never Guess"
         ]
+    ],
+    [
+        "id" => "a3e8c91f4b",
+        "num" => $i++,
+        "title" => "4 Questions, 1 Link",
+        "bref" => "I challenge guests to solve four quick trivia questions and find the **one hidden thread** that links them all.",
+        "desc" => "
+            A fast-paced, high-energy trivia challenge! The guests are presented with four seemingly unrelated questions. The goal isn't just to get the answers right—it's to crack the secret connection that binds them all together before the clock runs out.
+            
+            ### Example Round:
+            * **Q1:** What is the surname of the artist behind the massive hit 'Uptown Funk'? *(A1: Mars)*
+            * **Q2:** What is the name of the red planet, fourth from the Sun? *(A2: Mars)*
+            * **Q3:** What chocolate brand makes a nougat-filled bar named after a galaxy? *(A3: Milky Way)*
+            * **Q4:** What classic 1972 David Bowie track features the lyrics 'There's a starman waiting in the sky'? *(A4: Starman)*
+            
+            **The Link:** Outer Space / Galactic Themes!
+        ",
     ],
 
     // ==========================================
@@ -478,6 +474,24 @@ $segments = [
         "submission" => [
             "value" => "Alarm_Review",
             "label" => "Submit Your Dreaded Morning Alarm Sound"
+        ]
+    ],
+    [
+        "id" => "8958333e2a",
+        "num" => $i++,
+        "title" => "Beyond The Border",
+        "bref" => "I explore and appreciate the finest music and customs from **global cultures**.",
+        "desc" => "
+            I take a few structured minutes of each broadcast to step completely away from local news. I travel outside our borders to appreciate exceptional cultural components from nations across the globe.
+            
+            We track:
+            * Exceptional music releases and indie charts
+            * Traditional and specialised localized games
+            * Fascinating historical customs and arts
+        ",
+        "submission" => [
+            "value" => "A_New_Country",
+            "label" => "Can You To Talk All About My Favourite Culture"
         ]
     ],
 ];
