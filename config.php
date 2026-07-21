@@ -494,6 +494,27 @@ $segments = [
             "label" => "Can You To Talk All About My Favourite Culture"
         ]
     ],
+    [
+        "id" => "e719c82b41",
+        "num" => $i++,
+        "title" => "Toby's 360 Views",
+        "bref" => "I give **360 seconds** and a **360° perspective** on the biggest headlines breaking right now.",
+        "desc" => "
+            A multi-angle breakdown of the week's biggest news stories and trending topics; the studio clock is set to exactly `360 seconds` (6 minutes).
+            
+            During the countdown, I break down a single major headline from every conceivable angle:
+            * **What actually happened?**
+            * **What are people saying on social media?**
+            * **What is the overlooked or absurd perspective?**
+            * **What does it actually mean for us as the people?**
+            
+            Once the 360-second timer hits zero, the mic cuts and we will have explored all views.
+        ",
+        "submission" => [
+            "value" => "Tobys_360_Views",
+            "label" => "Submit a Headline for Toby's 360 Views"
+        ]
+    ],
 ];
 
 $parse_down = new Parsedown();
