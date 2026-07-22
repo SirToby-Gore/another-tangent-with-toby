@@ -28,7 +28,7 @@
     <header>
         <div class="container nav-wrapper">
             <a class="logo" href="#">
-                <strong class="orange">Another Tangent</strong> <span>with toby</span>
+                <strong class="orange">Another Tangent</strong> <span>with Toby</span>
             </a>
             <nav class="nav-links">
                 <a href="#segments">Segments</a>

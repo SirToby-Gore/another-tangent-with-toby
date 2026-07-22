@@ -15,7 +15,7 @@
                     <p class="bref-text">
                         <?= $seg['bref'] ?>
                     </p>
-                    <span class="tap-hint">Tap to expand rules &rarr;</span>
+                    <span class="tap-hint">Tap to expand &rarr;</span>
                 </button>
 
                 <div id="popover-seg-<?= $seg['num'] ?>" popover class="segment-popover-modal">

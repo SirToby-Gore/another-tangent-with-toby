@@ -94,7 +94,7 @@ $segments = [
             My goal is to create an *infinite chain* of musical tastes across campus; it relies entirely on a continuous loop of student recommendations.
             
             * **Step 1:** I play the track selected by the previous week's final interviewee.
-            * **Step 2:** I stop a random student on campus, play them a *15-second* snippet, and ask for a rating out of 10, and go to **Step 1**.
+            * **Step 2:** I stop a random student on campus, play them a *15-second* snippet, and ask for a rating out of 10.
             * **Step 3:** I ask for their absolute favourite song right now; that track becomes the start of next week's chain.
             
             The loop always begins or ends with my in-studio guest.
@@ -113,7 +113,7 @@ $segments = [
             * A shared background session singer
             * Highly obscure trivia (e.g., *both singers visited the same restaurant on their fifth birthdays*)
             
-            The studio guest must try to guess the secret thread of logic before the track ends.
+            The studio guest give me a track linked to the last by one of these facts.
         ",
     ],
     [
@@ -137,18 +137,18 @@ $segments = [
         "id" => "d5b127ef9a",
         "num" => $i++,
         "title" => "In The Archives With A Pair Of Fresh Ears",
-        "bref" => "Guests react to a **mystery track** completely blind before predicting its legacy 15 years from now.",
+        "bref" => "We go into the archives and explore older tracks again with a pair of fresh again.",
         "desc" => "
-            We put our guest's musical instincts to the ultimate test! We slide headphones onto them and play a mystery track they have completely never heard before—ranging from fresh, undiscovered campus demos to hidden global indie gems.
-            
-            * **The Blind Reaction:** The guest reacts live to the raw production layers, trying to guess the artist's vibe, genre, or background purely on first-listen goosebumps.
-            * **The Time Capsule Test:** Once the track is revealed, we fast-forward 15 years. The panel must debate: *Does this song have the hook to survive a decade? What core memories will future students associate with it?*
-            
-            We wrap up by rating its potential to become a nostalgic throwback classic on a scale of 1 to 10.
+            We put our guest's musical instincts to the ultimate test! We slide headphones onto them and play tracks from the last few decades as if it our very first time to listening to the tracks.
+
+            * Pick out a track from the last few decades.
+            * Forget everything about the song.
+            * Then listen to the song with **a pair of fresh ears**.
+            * Then share our opinions on the track.
         ",
         "submission" => [
-            "value" => "Blind_Future_Classic",
-            "label" => "Submit an Original Track for the Blind Time Capsule Test"
+            "value" => "In_The_Archives",
+            "label" => "Submit a Track for the Time Capsule Test"
         ]
     ],
     [
@@ -167,29 +167,16 @@ $segments = [
         ]
     ],
     [
-        "id" => "b3bf92f3ac",
-        "num" => $i++,
-        "title" => "Oi DJ, crank that up!",
-        "bref" => "I host a high-energy, rapid-fire mini-mix of **student dance anthems**.",
-        "desc" => "
-            I turn the studio into a high-energy dancefloor for a few fast-paced minutes. I hand control over to a guest student DJ or trigger a customized `3-minute mini-mix` of clean, crowd-pleasing dance anthems and creative remixes.
-            
-            *Crucial Rule: Every track must transition smoothly within 45 seconds to keep the momentum soaring.*
-        ",
-        "submission" => [
-            "value" => "DJ_Bangers",
-            "label" => "Suggest a High-Energy Track for the Mini-Mix"
-        ]
-    ],
-    [
         "id" => "0ca59490bf",
         "num" => $i++,
         "title" => "A Touch of Class",
         "bref" => "I play a classical masterpiece and chat about its **epic energy**.",
         "desc" => "
-            I step away from modern radio playlists to explore classical compositions; it highlights the pure, timeless intensity of orchestral music. I play one or two legendary classical movements.
+            I step away from modern radio playlists to explore classical compositions; it highlights the pure, timeless intensity of orchestral music.
             
-            My guest and I discuss the dramatic instrumentation and historical context. *No formal musical training is required*; we rate each track purely on its cinematic power out of 10.
+            I play one or two legendary classical movements.
+            
+            My guest and I discuss the dramatic instrumentation and historical context. *No formal musical training is required*.
         ",
         "submission" => [
             "value" => "Touch_of_Class",
@@ -208,11 +195,7 @@ $segments = [
         "desc" => "
             I sift through the wonderfully bizarre world of local UK journalism. Each week, I select one specific region of the UK (e.g., *Cornwall* or *Yorkshire*).
             
-            I read out three bizarre local news headlines from that region:
-
-            1. Real local headline
-            2. Real local headline
-            3. **Completely fabricated by me**
+            I read out three bizarre local news headlines from that region; 2 Real local headlines, and 1 **Completely fabricated by me**.
             
             The guest or live callers must deduce which headline is the fake.
         ",
@@ -225,7 +208,7 @@ $segments = [
         "desc" => "
             I test my guest's straight-faced bluffing and the audience's active listening. I hand my guest a short, highly academic-sounding 60-second script on a normal topic.
             
-            Hidden seamlessly inside the text are **three completely fabricated, absurd fake facts**. A live caller or I must hit the buzzer the exact second we spot a lie; *correct guesses win points*, but *false alarms cost you*.
+            Hidden seamlessly inside the text are **three completely fabricated, absurd fake facts**. A live caller, guest, or I must hit the buzzer the exact second we spot a lie; *correct guesses win points*, but *false alarms cost you*.
         ",
         "submission" => [
             "value" => "Lecture_Hall_Lies",
@@ -272,7 +255,7 @@ $segments = [
         "desc" => "
             This high-concept riddle segment challenges our studio panel to crack cases of obscure trivia. I kick off by dropping an unbelievable scenario that sounds totally fabricated, such as a man leaping from an aeroplane annually without a parachute.
             
-            Listeners and guests must cross-examine me using quick fire **yes-or-no questions** before the clock runs down, trying to piece together a technicality or unusual profession—like a *safety specialist evaluating high-altitude free-diving recovery gear*.
+            Listeners and guests must cross-examine me using quick fire-questions before the clock runs down, trying to piece together a technicality or unusual profession—like a *safety specialist evaluating high-altitude free-diving recovery gear*.
         ",
         "submission" => [
             "value" => "you_would_never_guess",
@@ -313,24 +296,6 @@ $segments = [
         "submission" => [
             "value" => "Another_World_Hypothetical",
             "label" => "Submit an 'In Another World' Question"
-        ]
-    ],
-    [
-        "id" => "a7f39d2c8b",
-        "num" => $i++,
-        "title" => "The Three Talking Heads",
-        "bref" => "A chaotic debate where a panel of conflicting **emotional extremes** forces a mediator to find a middle ground.",
-        "desc" => "
-            This segment divides the studio panel into three distinct personas:
-            * **Head 1:** Pure anger and aggression
-            * **Head 2:** Pure love and compassion
-            * **Head 3:** The grounded voice of reason
-            
-            After one of the emotional extremes reads out a listener-submitted scenario, the first two voices launch into a dramatic, polarized argument from their respective viewpoints. It is up to the *voice of reason* to step into the crossfire, appease both sides, and construct a ridiculous yet functional compromise.
-        ",
-        "submission" => [
-            "value" => "three_talking_heads",
-            "label" => "Submit a Scenario for The Three Talking Heads"
         ]
     ],
     [
@@ -439,26 +404,6 @@ $segments = [
         "submission" => [
             "value" => "Comedy_Minute",
             "label" => "Apply for The Comedy Minute Open Mic"
-        ]
-    ],
-    [
-        "id" => "0ad33de056",
-        "num" => $i++,
-        "title" => "Talbot Campus Castaway",
-        "bref" => "I challenge guests to select **three essentials** to survive a semester locked inside Weymouth House.",
-        "desc" => "
-            I run a local spin on a legendary format. You are locked inside the *Weymouth House* media building on Talbot Campus for an entire semester with no way out.
-            
-            You are permitted to bring exactly **three essential items** to keep you sane:
-            1. One specific snack from the campus shop
-            2. One track to blast over the student radio speakers
-            3. One completely useless personal item from your flat
-            
-            My guest and I rate your kit from *'Survival Genius'* to *'Dorm Room Disaster'*.
-        ",
-        "submission" => [
-            "value" => "Campus_Castaway",
-            "label" => "Submit My Survival Kit for Talbot Campus Castaway"
         ]
     ],
     [
