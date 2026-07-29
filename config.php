@@ -460,6 +460,23 @@ $segments = [
             "label" => "Submit a Headline for Toby's 360 Views"
         ]
     ],
+    [
+        "id" => "f83a294b10",
+        "num" => $i++,
+        "title" => "The Sounds of the Students",
+        "bref" => "I capture random **snippets of campus life** and remix them into full radio tracks.",
+        "desc" => "
+            I turn the everyday sonic chaotic life of campus into pure music! armed with a portable mic, I hit the concourse, the library, and the student union to record micro-snippets of student voices, laughters, keys jingling, or cafeteria noise.
+            
+            * **The Sample:** I collect 5 to 10 unique ambient audio clips from real students across campus.
+            * **The Remix:** I slice, pitch-shift, and lay those sounds over a drum beat to build an original track.
+            * **The Premier:** We play the final compiled song live on air and challenge guests to identify whose voice or sound made the mix!
+        ",
+        "submission" => [
+            "value" => "Sounds_Of_Students",
+            "label" => "Submit a Sound Snippet for The Sounds of the Students"
+        ]
+    ],
 ];
 
 $parse_down = new Parsedown();
