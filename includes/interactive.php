@@ -1,7 +1,16 @@
 <?php
+$dbError = false;
 $successMessage = "";
 $mailMessage = "";
 $mailStatus = "";
+
+$senderName = "";
+$contactDetail = "";
+$submissionType = "";
+$messageContent = "";
+
+$subscriberName = "";
+$email = "";
 
 $db_host = $_ENV['hostname'] ?? $_SERVER['hostname'] ?? null;
 $db_user = $_ENV['username'] ?? $_SERVER['username'] ?? null;
@@ -15,23 +24,22 @@ if ($db_host && $db_user && $db_name) {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
     } catch (Throwable $e) {
-        error_log("Database Connection Error: " . $e->getMessage());
-        $successMessage = "Database connection error. Please try again shortly!";
+        $dbError = true;
         $conn = null;
     }
 } else {
-    $successMessage = "Environment configuration missing for database connection.";
+    $dbError = true;
 }
 
 if ($conn && !$conn->connect_error) {
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['submit'])) {
-        try {
-            $senderName = filter_input(INPUT_POST, 'sender_name', FILTER_SANITIZE_SPECIAL_CHARS);
-            $contactDetail = filter_input(INPUT_POST, 'contact_details', FILTER_SANITIZE_SPECIAL_CHARS);
-            $submissionType = filter_input(INPUT_POST, 'submission_type', FILTER_SANITIZE_SPECIAL_CHARS);
-            $messageContent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
+        $senderName = filter_input(INPUT_POST, 'sender_name', FILTER_SANITIZE_SPECIAL_CHARS) ?? '';
+        $contactDetail = filter_input(INPUT_POST, 'contact_details', FILTER_SANITIZE_SPECIAL_CHARS) ?? '';
+        $submissionType = filter_input(INPUT_POST, 'submission_type', FILTER_SANITIZE_SPECIAL_CHARS) ?? '';
+        $messageContent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS) ?? '';
 
+        try {
             $stmt = $conn->prepare("
                 INSERT INTO `Submissions` (
                     `sender_name`,
@@ -45,27 +53,31 @@ if ($conn && !$conn->connect_error) {
                 $stmt->bind_param("ssss", $senderName, $contactDetail, $submissionType, $messageContent);
                 if ($stmt->execute()) {
                     $successMessage = "Awesome, " . htmlspecialchars($senderName) . "! Your data reached Toby's dashboard screen!";
+                    $senderName = "";
+                    $contactDetail = "";
+                    $submissionType = "";
+                    $messageContent = "";
                 } else {
-                    $successMessage = "Something went wrong saving your message. Please try again!";
+                    $successMessage = "Error: Something went wrong saving your message. Please try again.";
                 }
                 $stmt->close();
             }
         } catch (Throwable $e) {
-            error_log("Form Submission Error: " . $e->getMessage());
-            $successMessage = "Failed to save your submission.";
+            $successMessage = "Error: Something went wrong saving your message. Please try again.";
         }
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_mailing_list'])) {
-        try {
-            $subscriberName = filter_input(INPUT_POST, 'subscriber_name', FILTER_SANITIZE_SPECIAL_CHARS);
-            $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-            $action = $_POST['action_type'] ?? 'subscribe';
+        $subscriberName = filter_input(INPUT_POST, 'subscriber_name', FILTER_SANITIZE_SPECIAL_CHARS) ?? '';
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL) ?? '';
+        $action = $_POST['action_type'] ?? 'subscribe';
 
-            if (!$email) {
-                $mailMessage = "Please enter a valid email address.";
-                $mailStatus = "error";
-            } else {
+        if (!$email) {
+            $email = $_POST['email'] ?? '';
+            $mailMessage = "Please enter a valid email address.";
+            $mailStatus = "error";
+        } else {
+            try {
                 if ($action === 'subscribe') {
                     if (empty($subscriberName)) {
                         $mailMessage = "Please provide your name to subscribe.";
@@ -89,6 +101,8 @@ if ($conn && !$conn->connect_error) {
 
                                 $mailMessage = "Welcome back, " . htmlspecialchars($subscriberName) . "! Your subscription has been reactivated.";
                                 $mailStatus = "success";
+                                $subscriberName = "";
+                                $email = "";
                             }
                         } else {
                             $insertStmt = $conn->prepare("INSERT INTO `mailing_list` (`name`, `email`) VALUES (?, ?)");
@@ -96,6 +110,11 @@ if ($conn && !$conn->connect_error) {
                             if ($insertStmt->execute()) {
                                 $mailMessage = "Success! Thanks for joining, " . htmlspecialchars($subscriberName) . ".";
                                 $mailStatus = "success";
+                                $subscriberName = "";
+                                $email = "";
+                            } else {
+                                $mailMessage = "Error submitting mailing list data. Please try again.";
+                                $mailStatus = "error";
                             }
                             $insertStmt->close();
                         }
@@ -118,13 +137,14 @@ if ($conn && !$conn->connect_error) {
 
                         $mailMessage = "You have been successfully unsubscribed.";
                         $mailStatus = "success";
+                        $subscriberName = "";
+                        $email = "";
                     }
                 }
+            } catch (Throwable $e) {
+                $mailMessage = "Error submitting mailing list data. Please try again.";
+                $mailStatus = "error";
             }
-        } catch (Throwable $e) {
-            error_log("Mailing List Error: " . $e->getMessage());
-            $mailMessage = "An error occurred with the mailing list service.";
-            $mailStatus = "error";
         }
     }
 
@@ -171,40 +191,46 @@ if ($conn && !$conn->connect_error) {
                 <h3>Join the Tangent Mailing List</h3>
                 <p class="desc">Get episode releases and studio announcements directly to your inbox.</p>
 
-                <?php if (!empty($mailMessage)): ?>
-                    <div class="alert-success" style="margin-bottom: 20px;">
-                        <?= htmlspecialchars($mailMessage) ?>
+                <?php if ($dbError): ?>
+                    <div class="alert-error" style="margin-top: 15px;">
+                        Database Connection Error. Mailing list sign-ups are currently offline.
                     </div>
+                <?php else: ?>
+
+                    <?php if (!empty($mailMessage)): ?>
+                        <div class="<?= $mailStatus === 'error' ? 'alert-error' : 'alert-success' ?>"
+                            style="margin-bottom: 20px;">
+                            <?= htmlspecialchars($mailMessage) ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <form method="POST" action="./#hub">
+                        <input type="hidden" name="action_mailing_list" value="1">
+
+                        <div class="form-group">
+                            <label for="subscriber_name">Your Name</label>
+                            <input type="text" id="subscriber_name" name="subscriber_name"
+                                value="<?= htmlspecialchars($subscriberName) ?>" placeholder="Jamie Smith" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" value="<?= htmlspecialchars($email) ?>"
+                                placeholder="example@email.com" required>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <button type="submit" name="action_type" value="subscribe" class="btn" style="flex: 1;">
+                                Subscribe
+                            </button>
+                            <button type="submit" name="action_type" value="unsubscribe" class="btn"
+                                style="background: rgba(255,255,255,0.1); color: #ccc;"
+                                onclick="return confirm('Unsubscribe from updates?');">
+                                Unsubscribe
+                            </button>
+                        </div>
+                    </form>
                 <?php endif; ?>
-
-                <form method="POST" action="./#hub">
-                    <input type="hidden" name="action_mailing_list" value="1">
-
-                    <div class="form-group">
-                        <label for="subscriber_name">Your Name</label>
-                        <input type="text" id="subscriber_name" name="subscriber_name" placeholder="Jamie Smith">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                    </div>
-
-                    <div style="display: flex; gap: 10px; align-items: center;">
-                        <button type="submit" name="action_type" value="subscribe" class="btn" style="flex: 1;">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114V5.383zm-.03 5.672-5.48-3.29-1.49 1.033a1 1 0 0 1-1.11 0L3.51 7.765l-5.48 3.29a1 1 0 0 0 .03 1.945h13.92a1 1 0 0 0 .03-1.945zM1 5.383v5.73l4.758-2.876L1 5.383z" />
-                            </svg>
-                            Subscribe
-                        </button>
-                        <button type="submit" name="action_type" value="unsubscribe" class="btn"
-                            style="background: rgba(255,255,255,0.1); color: #ccc;"
-                            onclick="return confirm('Are you sure you want to unsubscribe from our updates?');">
-                            Unsubscribe
-                        </button>
-                    </div>
-                </form>
             </div>
 
         </div>
@@ -213,20 +239,29 @@ if ($conn && !$conn->connect_error) {
             <h3>Submit to Toby's Dashboard</h3>
             <p class="desc">Instantly contribute to our next set of tangents or nominate someone cool!</p>
 
-            <?php if ($successMessage !== ""): ?>
-                <div class="alert-success">
-                    <?= $successMessage ?>
+            <?php if ($dbError): ?>
+                <div class="alert-error" style="margin-top: 15px;">
+                    Database Connection Error. Submissions are currently offline. Please try again later.
                 </div>
             <?php else: ?>
+
+                <?php if (!empty($successMessage)): ?>
+                    <div class="<?= str_contains(strtolower($successMessage), 'error') ? 'alert-error' : 'alert-success' ?>"
+                        style="margin-bottom: 20px;">
+                        <?= htmlspecialchars($successMessage) ?>
+                    </div>
+                <?php endif; ?>
 
                 <form method="POST" action="./?submit#hub">
                     <div class="form-group">
                         <label for="submission_type">Select Segment</label>
                         <select id="submission_type" name="submission_type" required>
-                            <option value="" disabled selected>-- Select a Segment Topic --</option>
+                            <option value="" disabled <?= empty($submissionType) ? 'selected' : '' ?>>-- Select a Segment
+                                Topic --</option>
                             <?php foreach ($segments as $seg): ?>
                                 <?php if (isset($seg['submission'])): ?>
-                                    <option value="<?= htmlspecialchars($seg['submission']['value']) ?>">
+                                    <option value="<?= htmlspecialchars($seg['submission']['value']) ?>"
+                                        <?= $submissionType === $seg['submission']['value'] ? 'selected' : '' ?>>
                                         <?= htmlspecialchars($seg['submission']['label']) ?>
                                     </option>
                                 <?php endif ?>
@@ -236,31 +271,27 @@ if ($conn && !$conn->connect_error) {
 
                     <div class="form-group">
                         <label for="sender_name">Your Name</label>
-                        <input type="text" id="sender_name" name="sender_name" placeholder="Jamie Smith from Poole"
-                            required>
+                        <input type="text" id="sender_name" name="sender_name" value="<?= htmlspecialchars($senderName) ?>"
+                            placeholder="Jamie Smith from Poole" required>
                     </div>
 
                     <div class="form-group">
                         <label for="contact_details">How To Contact You (Optional)</label>
                         <input type="text" id="contact_details" name="contact_details"
-                            placeholder="07123 456789 | example@email.com">
+                            value="<?= htmlspecialchars($contactDetail) ?>" placeholder="07123 456789 | example@email.com">
                     </div>
 
                     <div class="form-group">
                         <label for="content">Your Tangent Idea</label>
                         <textarea id="content" name="content" placeholder="Type your ideas, stories, or shout-outs here..."
-                            required></textarea>
+                            required><?= htmlspecialchars($messageContent) ?></textarea>
                     </div>
 
                     <button type="submit" class="btn">
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
-                        </svg>
                         Send to Studio
                     </button>
                 </form>
-            <?php endif ?>
+            <?php endif; ?>
         </div>
 
     </div>

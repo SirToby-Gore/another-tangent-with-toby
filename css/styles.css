@@ -47,6 +47,42 @@ a {
   padding: 0 24px;
 }
 
+.alert-info {
+  background-color: rgba(76, 175, 80, 0.15);
+  border: 1px solid #1129c6;
+  color: #1481ff;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.alert-success {
+  background-color: rgba(76, 175, 80, 0.15);
+  border: 1px solid #4caf50;
+  color: #81c784;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.alert-warning {
+  background-color: rgba(244, 67, 54, 0.15);
+  border: 1px solid #fa8a20;
+  color: #e5ce73;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.alert-error {
+  background-color: rgba(244, 67, 54, 0.15);
+  border: 1px solid #f44336;
+  color: #e57373;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
 header {
   background-color: rgba(30, 30, 36, 0.85);
   backdrop-filter: blur(12px);
