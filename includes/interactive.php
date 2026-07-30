@@ -3,117 +3,128 @@ $successMessage = "";
 $mailMessage = "";
 $mailStatus = "";
 
-// 1. Establish database connection once for both handlers
-$db_host = $_ENV['hostname'] ?? 'localhost';
-$db_user = $_ENV['username'] ?? '';
-$db_pass = $_ENV['password'] ?? '';
-$db_name = $_ENV['database'] ?? '';
+$db_host = $_ENV['hostname'] ?? $_SERVER['hostname'] ?? null;
+$db_user = $_ENV['username'] ?? $_SERVER['username'] ?? null;
+$db_pass = $_ENV['password'] ?? $_SERVER['password'] ?? null;
+$db_name = $_ENV['database'] ?? $_SERVER['database'] ?? null;
 
-$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+$conn = null;
 
-if ($conn->connect_error) {
-    $successMessage = "Database connection error. Please try again shortly!";
+if ($db_host && $db_user && $db_name) {
+    try {
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+    } catch (Throwable $e) {
+        error_log("Database Connection Error: " . $e->getMessage());
+        $successMessage = "Database connection error. Please try again shortly!";
+        $conn = null;
+    }
 } else {
+    $successMessage = "Environment configuration missing for database connection.";
+}
+
+if ($conn && !$conn->connect_error) {
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['submit'])) {
-        $senderName = filter_input(INPUT_POST, 'sender_name', FILTER_SANITIZE_SPECIAL_CHARS);
-        $contactDetail = filter_input(INPUT_POST, 'contact_details', FILTER_SANITIZE_SPECIAL_CHARS);
-        $submissionType = filter_input(INPUT_POST, 'submission_type', FILTER_SANITIZE_SPECIAL_CHARS);
-        $messageContent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
+        try {
+            $senderName = filter_input(INPUT_POST, 'sender_name', FILTER_SANITIZE_SPECIAL_CHARS);
+            $contactDetail = filter_input(INPUT_POST, 'contact_details', FILTER_SANITIZE_SPECIAL_CHARS);
+            $submissionType = filter_input(INPUT_POST, 'submission_type', FILTER_SANITIZE_SPECIAL_CHARS);
+            $messageContent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        $stmt = $conn->prepare("
-            INSERT INTO `Submissions` (
-                `sender_name`,
-                `contact_detail`,
-                `submission_type`,
-                `message_content`
-            ) VALUES (?, ?, ?, ?)
-        ");
+            $stmt = $conn->prepare("
+                INSERT INTO `Submissions` (
+                    `sender_name`,
+                    `contact_detail`,
+                    `submission_type`,
+                    `message_content`
+                ) VALUES (?, ?, ?, ?)
+            ");
 
-        if ($stmt) {
-            $stmt->bind_param("ssss", $senderName, $contactDetail, $submissionType, $messageContent);
-            if ($stmt->execute()) {
-                $successMessage = "Awesome, " . htmlspecialchars($senderName) . "! Your data reached Toby's dashboard screen!";
-            } else {
-                $successMessage = "Something went wrong saving your message. Please try again!";
+            if ($stmt) {
+                $stmt->bind_param("ssss", $senderName, $contactDetail, $submissionType, $messageContent);
+                if ($stmt->execute()) {
+                    $successMessage = "Awesome, " . htmlspecialchars($senderName) . "! Your data reached Toby's dashboard screen!";
+                } else {
+                    $successMessage = "Something went wrong saving your message. Please try again!";
+                }
+                $stmt->close();
             }
-            $stmt->close();
-        } else {
-            $successMessage = "Form preparation error: " . htmlspecialchars($conn->error);
+        } catch (Throwable $e) {
+            error_log("Form Submission Error: " . $e->getMessage());
+            $successMessage = "Failed to save your submission.";
         }
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_mailing_list'])) {
-        $subscriberName = filter_input(INPUT_POST, 'subscriber_name', FILTER_SANITIZE_SPECIAL_CHARS);
-        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-        $action = $_POST['action_type'] ?? 'subscribe';
+        try {
+            $subscriberName = filter_input(INPUT_POST, 'subscriber_name', FILTER_SANITIZE_SPECIAL_CHARS);
+            $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+            $action = $_POST['action_type'] ?? 'subscribe';
 
-        if (!$email) {
-            $mailMessage = "Please enter a valid email address.";
-            $mailStatus = "error";
-        } else {
-            if ($action === 'subscribe') {
-                if (empty($subscriberName)) {
-                    $mailMessage = "Please provide your name to subscribe.";
-                    $mailStatus = "error";
-                } else {
+            if (!$email) {
+                $mailMessage = "Please enter a valid email address.";
+                $mailStatus = "error";
+            } else {
+                if ($action === 'subscribe') {
+                    if (empty($subscriberName)) {
+                        $mailMessage = "Please provide your name to subscribe.";
+                        $mailStatus = "error";
+                    } else {
+                        $stmt = $conn->prepare("SELECT `id`, `status` FROM `mailing_list` WHERE `email` = ?");
+                        $stmt->bind_param("s", $email);
+                        $stmt->execute();
+                        $existing = $stmt->get_result()->fetch_assoc();
+                        $stmt->close();
 
+                        if ($existing) {
+                            if ($existing['status'] === 'subscribed') {
+                                $mailMessage = "You are already subscribed to the mailing list!";
+                                $mailStatus = "warning";
+                            } else {
+                                $updateStmt = $conn->prepare("UPDATE `mailing_list` SET `name` = ?, `status` = 'subscribed', `subscribed_at` = NOW() WHERE `id` = ?");
+                                $updateStmt->bind_param("si", $subscriberName, $existing['id']);
+                                $updateStmt->execute();
+                                $updateStmt->close();
+
+                                $mailMessage = "Welcome back, " . htmlspecialchars($subscriberName) . "! Your subscription has been reactivated.";
+                                $mailStatus = "success";
+                            }
+                        } else {
+                            $insertStmt = $conn->prepare("INSERT INTO `mailing_list` (`name`, `email`) VALUES (?, ?)");
+                            $insertStmt->bind_param("ss", $subscriberName, $email);
+                            if ($insertStmt->execute()) {
+                                $mailMessage = "Success! Thanks for joining, " . htmlspecialchars($subscriberName) . ".";
+                                $mailStatus = "success";
+                            }
+                            $insertStmt->close();
+                        }
+                    }
+                } elseif ($action === 'unsubscribe') {
                     $stmt = $conn->prepare("SELECT `id`, `status` FROM `mailing_list` WHERE `email` = ?");
                     $stmt->bind_param("s", $email);
                     $stmt->execute();
-                    $result = $stmt->get_result();
-                    $existing = $result->fetch_assoc();
+                    $existing = $stmt->get_result()->fetch_assoc();
                     $stmt->close();
 
-                    if ($existing) {
-                        if ($existing['status'] === 'subscribed') {
-                            $mailMessage = "You are already subscribed to the mailing list!";
-                            $mailStatus = "warning";
-                        } else {
-
-                            $updateStmt = $conn->prepare("UPDATE `mailing_list` SET `name` = ?, `status` = 'subscribed', `subscribed_at` = NOW() WHERE `id` = ?");
-                            $updateStmt->bind_param("si", $subscriberName, $existing['id']);
-                            $updateStmt->execute();
-                            $updateStmt->close();
-
-                            $mailMessage = "Welcome back, " . htmlspecialchars($subscriberName) . "! Your subscription has been reactivated.";
-                            $mailStatus = "success";
-                        }
+                    if (!$existing || $existing['status'] === 'unsubscribed') {
+                        $mailMessage = "That email is not currently on our active subscriber list.";
+                        $mailStatus = "warning";
                     } else {
+                        $updateStmt = $conn->prepare("UPDATE `mailing_list` SET `status` = 'unsubscribed' WHERE `id` = ?");
+                        $updateStmt->bind_param("i", $existing['id']);
+                        $updateStmt->execute();
+                        $updateStmt->close();
 
-                        $insertStmt = $conn->prepare("INSERT INTO `mailing_list` (`name`, `email`) VALUES (?, ?)");
-                        $insertStmt->bind_param("ss", $subscriberName, $email);
-                        if ($insertStmt->execute()) {
-                            $mailMessage = "Success! Thanks for joining, " . htmlspecialchars($subscriberName) . ".";
-                            $mailStatus = "success";
-                        } else {
-                            $mailMessage = "Failed to subscribe. Please try again.";
-                            $mailStatus = "error";
-                        }
-                        $insertStmt->close();
+                        $mailMessage = "You have been successfully unsubscribed.";
+                        $mailStatus = "success";
                     }
                 }
-            } elseif ($action === 'unsubscribe') {
-
-                $stmt = $conn->prepare("SELECT `id`, `status` FROM `mailing_list` WHERE `email` = ?");
-                $stmt->bind_param("s", $email);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                $existing = $result->fetch_assoc();
-                $stmt->close();
-
-                if (!$existing || $existing['status'] === 'unsubscribed') {
-                    $mailMessage = "That email is not currently on our active subscriber list.";
-                    $mailStatus = "warning";
-                } else {
-                    $updateStmt = $conn->prepare("UPDATE `mailing_list` SET `status` = 'unsubscribed' WHERE `id` = ?");
-                    $updateStmt->bind_param("i", $existing['id']);
-                    $updateStmt->execute();
-                    $updateStmt->close();
-
-                    $mailMessage = "You have been successfully unsubscribed.";
-                    $mailStatus = "success";
-                }
             }
+        } catch (Throwable $e) {
+            error_log("Mailing List Error: " . $e->getMessage());
+            $mailMessage = "An error occurred with the mailing list service.";
+            $mailStatus = "error";
         }
     }
 
