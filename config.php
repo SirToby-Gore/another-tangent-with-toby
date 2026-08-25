@@ -83,7 +83,7 @@ $i = 1;
 
 $segments = [
     // ==========================================
-    // 1. SPECIALIZED MUSIC SHOWCASES & FEATURES
+    // 1. MUSIC & SOUND SHOWCASES
     // ==========================================
     [
         "id" => "278c8e5f50",
@@ -98,22 +98,6 @@ $segments = [
             * **Step 3:** I ask for their absolute favourite song right now; that track becomes the start of next week's chain.
             
             The loop always begins or ends with my in-studio guest.
-        ",
-    ],
-    [
-        "id" => "0cb2988177",
-        "num" => $i++,
-        "title" => "Linked by a Thread",
-        "bref" => "I connect songs through increasingly ridiculous threads of **trivia and musical coincidences**.",
-        "desc" => "
-            I attempt to build a musical chain where every track connects to the previous one via highly convoluted and absurd relationships.
-            
-            The link might be:
-            * A shared chord progression
-            * A shared background session singer
-            * Highly obscure trivia (e.g., *both singers visited the same restaurant on their fifth birthdays*)
-            
-            The studio guest give me a track linked to the last by one of these facts.
         ",
     ],
     [
@@ -137,14 +121,14 @@ $segments = [
         "id" => "d5b127ef9a",
         "num" => $i++,
         "title" => "In The Archives With A Pair Of Fresh Ears",
-        "bref" => "We go into the archives and explore older tracks again with a pair of fresh again.",
+        "bref" => "We go into the archives and explore older tracks with a **pair of fresh ears**.",
         "desc" => "
-            We put our guest's musical instincts to the ultimate test! We slide headphones onto them and play tracks from the last few decades as if it our very first time to listening to the tracks.
+            We put our guest's musical instincts to the ultimate test! We slide headphones onto them and play tracks from the last few decades as if it were their very first time listening to them.
 
             * Pick out a track from the last few decades.
-            * Forget everything about the song.
-            * Then listen to the song with **a pair of fresh ears**.
-            * Then share our opinions on the track.
+            * Forget everything you know about the song.
+            * Listen to the track with **a pair of fresh ears**.
+            * Share honest reactions and opinions live on air.
         ",
         "submission" => [
             "value" => "In_The_Archives",
@@ -183,9 +167,26 @@ $segments = [
             "label" => "Suggest a Classical Track"
         ]
     ],
+    [
+        "id" => "f83a294b10",
+        "num" => $i++,
+        "title" => "The Sounds of the Students",
+        "bref" => "I capture random **snippets of campus life** and remix them into full radio tracks.",
+        "desc" => "
+            I turn the everyday sonic chaotic life of campus into pure music! Armed with a portable mic, I hit the concourse, the library, and the student union to record micro-snippets of student voices, laughter, keys jingling, or cafeteria noise.
+            
+            * **The Sample:** I collect 5 to 10 unique ambient audio clips from real students across campus.
+            * **The Remix:** I slice, pitch-shift, and lay those sounds over a drum beat to build an original track.
+            * **The Premiere:** We play the final compiled song live on air and challenge guests to identify whose voice or sound made the mix!
+        ",
+        "submission" => [
+            "value" => "Sounds_Of_Students",
+            "label" => "Submit a Sound Snippet for The Sounds of the Students"
+        ]
+    ],
 
     // ==========================================
-    // 2. STUDIO INTERACTIVE GAMES & RIDDLES
+    // 2. INTERACTIVE GAMES & TRIVIA
     // ==========================================
     [
         "id" => "2d87bd747d",
@@ -195,7 +196,7 @@ $segments = [
         "desc" => "
             I sift through the wonderfully bizarre world of local UK journalism. Each week, I select one specific region of the UK (e.g., *Cornwall* or *Yorkshire*).
             
-            I read out three bizarre local news headlines from that region; 2 Real local headlines, and 1 **Completely fabricated by me**.
+            I read out three bizarre local news headlines from that region; 2 real local headlines, and 1 **completely fabricated by me**.
             
             The guest or live callers must deduce which headline is the fake.
         ",
@@ -234,54 +235,9 @@ $segments = [
             "label" => "A Topic For Read The Room"
         ]
     ],
-    [
-        "id" => "8784e8da83",
-        "num" => $i++,
-        "title" => "3 Lies and Maybe a Truth",
-        "bref" => "I make guests guess wild claims before forcing a partner to **blindly defend** them.",
-        "desc" => "
-            I host a high-stakes game of deception and blind loyalty.
-            
-            * **Step 1:** Person A drops three completely wild personal or general statements (anywhere from zero to all three could be true).
-            * **Step 2:** Person B must guess which statements are facts and which are blatant lies.
-            * **Step 3:** I immediately put Person C on the spot, forcing them to dramatically justify and defend Person A's ridiculous claims *regardless of the actual truth*.
-        ",
-    ],
-    [
-        "id" => "92be7142fa",
-        "num" => $i++,
-        "title" => "You'd Never Guess",
-        "bref" => "Guests try to uncover the bizarre but entirely real logic hidden behind an **impossible-sounding statement**.",
-        "desc" => "
-            This high-concept riddle segment challenges our studio panel to crack cases of obscure trivia. I kick off by dropping an unbelievable scenario that sounds totally fabricated, such as a man leaping from an aeroplane annually without a parachute.
-            
-            Listeners and guests must cross-examine me using quick fire-questions before the clock runs down, trying to piece together a technicality or unusual profession—like a *safety specialist evaluating high-altitude free-diving recovery gear*.
-        ",
-        "submission" => [
-            "value" => "you_would_never_guess",
-            "label" => "Submit a Bizarre Fact for You'd Never Guess"
-        ]
-    ],
-    [
-        "id" => "a3e8c91f4b",
-        "num" => $i++,
-        "title" => "4 Questions, 1 Link",
-        "bref" => "I challenge guests to solve four quick trivia questions and find the **one hidden thread** that links them all.",
-        "desc" => "
-            A fast-paced, high-energy trivia challenge! The guests are presented with four seemingly unrelated questions. The goal isn't just to get the answers right—it's to crack the secret connection that binds them all together before the clock runs out.
-            
-            ### Example Round:
-            * **Q1:** What is the surname of the artist behind the massive hit 'Uptown Funk'? *(A1: Mars)*
-            * **Q2:** What is the name of the red planet, fourth from the Sun? *(A2: Mars)*
-            * **Q3:** What chocolate brand makes a nougat-filled bar named after a galaxy? *(A3: Milky Way)*
-            * **Q4:** What classic 1972 David Bowie track features the lyrics 'There's a starman waiting in the sky'? *(A4: Starman)*
-            
-            **The Link:** Outer Space / Galactic Themes!
-        ",
-    ],
 
     // ==========================================
-    // 3. IMPROVISATIONAL COMEDY & AUDIO DRAMA
+    // 3. COMEDY, SKETCHES & AUDIO DRAMA
     // ==========================================
     [
         "id" => "76b0ceaeba",
@@ -328,24 +284,25 @@ $segments = [
             "label" => "Suggest a Pointless Power or Crisis Scenario"
         ]
     ],
-
-    // ==========================================
-    // 4. CAMPUS CULTURE, LIFESTYLE & BANTER
-    // ==========================================
     [
-        "id" => "85cd9633ef",
+        "id" => "365ef9aa71",
         "num" => $i++,
-        "title" => "Society Showdown",
-        "bref" => "I pit two wildly different university groups against each other in a direct debate to prove **who is truly the best**.",
+        "title" => "60 Seconds To Stand Up",
+        "bref" => "I give student comics a high-pressure **60-second stand-up showcase**.",
         "desc" => "
-            I host a grand, head-to-head clash between two different student societies; they must argue directly why their group is objectively the finest on campus. Representatives defend their own activities, community, and membership achievements while highlighting the *hilarious flaws* of their rivals.
+            I collaborate with the *BU Stand-Up Society* to feature local campus talent. Guest comedians get exactly `60 seconds` on a hot mic to deliver their best skit or one-liners.
             
-            I grant each side a final, quick-fire chance to win over the microphone. With the decider when I judge, jury, and executioner determine the ultimate winner of the coveted **'Tangent Trophy'**.",
+            A loud buzzer sounds the exact millisecond the timer hits zero. The studio desk and I give a light-hearted, instant micro-review of the set.
+        ",
         "submission" => [
-            "value" => "Society_showdown",
-            "label" => "Nominate Why Your Society is the Best on Campus"
+            "value" => "Comedy_Minute",
+            "label" => "Apply for The Comedy Minute Open Mic"
         ]
     ],
+
+    // ==========================================
+    // 4. STUDENT LIFE, ADVICE & LOCAL CULTURE
+    // ==========================================
     [
         "id" => "1bc01eedee",
         "num" => $i++,
@@ -359,21 +316,6 @@ $segments = [
         "submission" => [
             "value" => "Bmouth_Bucket_List",
             "label" => "I've Got Something for your Bucket List"
-        ]
-    ],
-    [
-        "id" => "4c265eec8c",
-        "num" => $i++,
-        "title" => "The Great Student Bake-Off",
-        "bref" => "I review weird **single-mug budget** cooking recipe hacks.",
-        "desc" => "
-            I celebrate the highly creative, highly stressful, and budget-conscious culinary hacks of student life. Students submit their ultimate **under-£3** recipes or creative, affordable dishes.
-            
-            My guest and I attempt to evaluate or assemble these low-cost recipes live in the studio, rating them on a scale from *'Gourmet Masterpiece'* to *'Culinary Catastrophe'*.
-        ",
-        "submission" => [
-            "value" => "Bake_Off_Recipe",
-            "label" => "Submit a Recipe or Bake Off Challenge"
         ]
     ],
     [
@@ -392,35 +334,26 @@ $segments = [
         ]
     ],
     [
-        "id" => "365ef9aa71",
+        "id" => "e91c472f88",
         "num" => $i++,
-        "title" => "60 Seconds To Stand Up",
-        "bref" => "I give student comics a high-pressure **60-second stand-up showcase**.",
+        "title" => "Green & Grounded",
+        "bref" => "I share practical, low-cost tips to **save cash** while **saving the planet** on campus.",
         "desc" => "
-            I collaborate with the *BU Stand-Up Society* to feature local campus talent. Guest comedians get exactly `60 seconds` on a hot mic to deliver their best skit or one-liners.
+            Why choose between your wallet and the environment? Each week, I break down simple, actionable hacks for student living that cut down on waste and save money.
             
-            A loud buzzer sounds the exact millisecond the timer hits zero. The studio desk and I give a light-hearted, instant micro-review of the set.
+            * **Eco-Hacks:** Zero-waste living on a tight student budget.
+            * **Thrift & Swap:** Spotlighting local charity shops, vintage finds, and campus swap meets.
+            * **Budget Eats:** Low-impact, low-cost meal prep ideas to slash food waste.
         ",
         "submission" => [
-            "value" => "Comedy_Minute",
-            "label" => "Apply for The Comedy Minute Open Mic"
+            "value" => "Green_And_Grounded",
+            "label" => "Submit a Money-Saving Eco Tip"
         ]
     ],
-    [
-        "id" => "653c45a996",
-        "num" => $i++,
-        "title" => "The Alarm Clock Review",
-        "bref" => "I blast and review the absolute **worst songs** students use to wake up in the morning.",
-        "desc" => "
-            I analyze the sounds of morning dread. Students submit the exact alarm ringtone or song they use to force themselves out of bed for early lectures.
-            
-            I play the track live on air, analyze its panic-inducing qualities, and suggest a *ridiculous, hyper-energetic replacement song* to completely change your morning routine.
-        ",
-        "submission" => [
-            "value" => "Alarm_Review",
-            "label" => "Submit Your Dreaded Morning Alarm Sound"
-        ]
-    ],
+
+    // ==========================================
+    // 5. GLOBAL PERSPECTIVES & DEEP DIVES
+    // ==========================================
     [
         "id" => "8958333e2a",
         "num" => $i++,
@@ -436,7 +369,7 @@ $segments = [
         ",
         "submission" => [
             "value" => "A_New_Country",
-            "label" => "Can You To Talk All About My Favourite Culture"
+            "label" => "Can You Talk All About My Favourite Culture"
         ]
     ],
     [
@@ -458,23 +391,6 @@ $segments = [
         "submission" => [
             "value" => "Tobys_360_Views",
             "label" => "Submit a Headline for Toby's 360 Views"
-        ]
-    ],
-    [
-        "id" => "f83a294b10",
-        "num" => $i++,
-        "title" => "The Sounds of the Students",
-        "bref" => "I capture random **snippets of campus life** and remix them into full radio tracks.",
-        "desc" => "
-            I turn the everyday sonic chaotic life of campus into pure music! armed with a portable mic, I hit the concourse, the library, and the student union to record micro-snippets of student voices, laughters, keys jingling, or cafeteria noise.
-            
-            * **The Sample:** I collect 5 to 10 unique ambient audio clips from real students across campus.
-            * **The Remix:** I slice, pitch-shift, and lay those sounds over a drum beat to build an original track.
-            * **The Premier:** We play the final compiled song live on air and challenge guests to identify whose voice or sound made the mix!
-        ",
-        "submission" => [
-            "value" => "Sounds_Of_Students",
-            "label" => "Submit a Sound Snippet for The Sounds of the Students"
         ]
     ],
 ];
